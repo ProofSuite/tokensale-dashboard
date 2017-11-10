@@ -329,7 +329,7 @@ In order to change the 'default' language, simply place the abbreviation of that
   }
 ```
 
-## Linking a Smart Contract
+## On Linking a Smart Contract
 
 **A Note on Contract Restrictions**
 
@@ -345,7 +345,8 @@ In order for contracts to be added, references to their location must be added t
 
 `/app/utility/constants/base-constants.ts` 
 
-Under the class object there must be a 
+If you wish to make an actual function call to the controller contract, you must edit the component files inside src/app/admin/send and src/app/admin/header-sidebar/buy-token
+utilizing the the web3 library and handlers marked on the headers of those files.
 
 ## Adding a Frontend Contract Tracking API
 
