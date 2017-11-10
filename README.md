@@ -2,6 +2,8 @@
 
 ![This is an implementation of the Proof Tokensale utilizing the code found in this repository.  You can see it at work at app.prooftokensale.com](https://i.imgur.com/dPlB05G.png)
 
+[Working Example](https://app.prooftokensale.com)
+
 The Proof Tokensale dashboard is an agnostic wrapper for erc-20 enabled tokens and tokensale controller contracts.  
 
 NOTE: This software is still under rapid development and will undergo constant changes.  These include easy-deploy scripts, front end reactivity improvements and basic code refactoring.  Keep a close eye on commit records so your own deployments can keep being updated with the latest code.
@@ -39,7 +41,7 @@ Likewise, due to the constantly changing standards around controller contracts, 
 
 **Contracts**
 
-The purchasing element of this application relies on the fallback being the purchasing function.  One of the first improvements to be implemented will be the integration of controller contracts that have other means of purchase such as specialized function calls.
+The purchasing element of this application relies on the fallback being the purchasing function.  One of the first improvements to be implemented will be the integration of controller contracts that have other means of purchase such as specialized function calls.  Contracts compatible with the Angular app can be seen both our own [Token Sale Contract](https://github.com/ProofSuite/ProofTokenSale) and can be generated with the [Proof CLI application](https://github.com/ProofSuite/TokenSaleGeneratorCLI).
 
 
 **Angular2 & Typescript**
