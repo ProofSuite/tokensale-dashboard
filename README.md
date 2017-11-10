@@ -104,8 +104,13 @@ NOTE: We recommend running the Node API on either a MacOS or Linux-based operati
 
 ## Installing Angular Cli
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
+
 In order to run, compile, and deploy test servers, we strongly recommend using the angular cli application.  Once Node is installed, getting set up with the angular CLI is easy.  
 
+After getting the newest version of node simply run the following command:
+
+`npm install @angular/cli`
 
 **Starting your Servers**
 
@@ -119,7 +124,7 @@ for production buildcode run:
 
 `ng build --target=production --aot`
 
-Note that most of your references, API's, and keys have not been set so running `ng build` will probably fail prior to configuration.  If it runs on first try you may need to call an exorcist for your workstation.
+Note that since most of your references, API's, and keys have not been set so running `ng build` will probably fail prior to configuration.  If it runs on first try you may need to call an exorcist for your workstation.
 
 ## Install The Application
 
