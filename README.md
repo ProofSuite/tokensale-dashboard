@@ -162,7 +162,7 @@ When you are done, you should see something like this at the top of your `base-c
 public static MAIN_NET_WEB3: string = "https://mainnet/infura.io/<YOUR_API_KEY>"
 ```
 
-- **Set up your Node Api Provider**: You can get the source for our implementation of the Node Provider [here]().  After that, edit the variable `Api` at the top of your base-constants.ts file.  
+- **Set up your Node Api Provider**: I you haven't already you will need to set up a backend API provider for your database.  You can get the source for our implementation of the Node Provider [here](https://github.com/ProofSuite/TokenSaleNodeApi).  After that, edit the variable `Api` at the top of your base-constants.ts file.  
 
 When you are finished setting it up, set your Node API provider to the variable `Api`.  This will allow the dashboard to sign up users, retrieve saved encrypted wallet containers, and set up referral codes.
 
