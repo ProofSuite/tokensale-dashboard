@@ -1,0 +1,263 @@
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+/*************************************************************************/
+.green {
+  color: #00c8aa; }
+
+.black {
+  color: #353c48; }
+
+.desktop-view {
+  display: block; }
+
+.mobile-view {
+  display: none; }
+
+.sidebar-container {
+  top: 0px;
+  z-index: 9;
+  background-color: #353c48;
+  width: 210px;
+  height: 100%;
+  float: left;
+  margin-right: 5px;
+  position: fixed;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2), 0 0px 3px rgba(0, 0, 0, 0.14), 0 0px 2px 0px rgba(0, 0, 0, 0.12); }
+  .sidebar-container .userProfile {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px; }
+    .sidebar-container .userProfile li {
+      list-style-type: none; }
+      .sidebar-container .userProfile li a {
+        display: block;
+        width: 97%;
+        margin: auto;
+        padding: 11px 3px 33px 6px;
+        color: #96a2b4;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+        border-radius: 2px;
+        cursor: pointer;
+        border: 2px solid rgba(141, 145, 152, 0.24); }
+        .sidebar-container .userProfile li a i {
+          color: #96a2b4;
+          vertical-align: bottom;
+          float: left; }
+        .sidebar-container .userProfile li a div {
+          float: left;
+          width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          position: relative;
+          left: 7px;
+          top: 3px; }
+        .sidebar-container .userProfile li a.active, .sidebar-container .userProfile li a:hover {
+          background-color: #313843;
+          color: #fff !important; }
+          .sidebar-container .userProfile li a.active i, .sidebar-container .userProfile li a:hover i {
+            color: #fff !important; }
+  .sidebar-container .logo {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    .sidebar-container .logo img {
+      width: 65%; }
+  .sidebar-container ul.navbar-menu {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px; }
+    .sidebar-container ul.navbar-menu li {
+      list-style-type: none; }
+      .sidebar-container ul.navbar-menu li a {
+        display: block;
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        color: #96a2b4;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+        border-radius: 2px;
+        cursor: pointer; }
+        .sidebar-container ul.navbar-menu li a i {
+          color: #96a2b4;
+          vertical-align: bottom; }
+        .sidebar-container ul.navbar-menu li a.active, .sidebar-container ul.navbar-menu li a:hover {
+          background-color: #313843;
+          color: #fff !important; }
+          .sidebar-container ul.navbar-menu li a.active i, .sidebar-container ul.navbar-menu li a:hover i {
+            color: #fff !important; }
+        .sidebar-container ul.navbar-menu li a span {
+          position: relative;
+          top: -2px; }
+      .sidebar-container ul.navbar-menu li .logout {
+        position: absolute;
+        bottom: 85px;
+        width: 95%;
+        padding: 8px 10px;
+        box-sizing: border-box; }
+      .sidebar-container ul.navbar-menu li .settings {
+        position: absolute;
+        bottom: 125px;
+        width: 95%;
+        padding: 8px 10px;
+        box-sizing: border-box; }
+      .sidebar-container ul.navbar-menu li img {
+        width: 22px;
+        vertical-align: middle;
+        margin-right: 5px; }
+
+.language-select {
+  position: absolute;
+  bottom: 25px; }
+
+.toggleIcon {
+  position: fixed;
+  bottom: 8px;
+  z-index: 99;
+  cursor: pointer;
+  left: 0px; }
+  .toggleIcon .open {
+    position: absolute;
+    left: 186px;
+    background-color: #4c5463 !important;
+    color: #ffffff;
+    border-radius: 9px 0px 0px 8px;
+    bottom: 5px; }
+  .toggleIcon .close {
+    position: absolute;
+    left: 0px;
+    background-color: #4c5463;
+    color: #fff !important;
+    border-radius: 0px 4px 4px 0px;
+    padding: 0px 2px 0px 0px;
+    bottom: 5px; }
+
+.language-dropdown {
+  margin-left: 13px; }
+
+/*  Header
+-----------------------------------------------------*/
+.header-container {
+  box-shadow: 0 0px 0px -4px rgba(0, 0, 0, 0.2), 0 0px 1px 0px rgba(0, 0, 0, 0.14), 0 0px 1px 0px rgba(0, 0, 0, 0.12);
+  margin: 5px 5px 5px 2px;
+  background-color: #353c48;
+  padding: 0px !important;
+  width: calc(100% - 10px);
+  /*progressbar*/ }
+  .header-container .progressbar {
+    overflow: hidden;
+    counter-reset: step;
+    padding-top: 32px;
+    padding-bottom: 11px;
+    margin: 0px;
+    margin-top: 5px;
+    width: calc(100%);
+    box-sizing: border-box;
+    z-index: 99;
+    position: relative; }
+    .header-container .progressbar li {
+      list-style-type: none;
+      color: #353c48;
+      text-transform: capitalize;
+      font-size: 13px;
+      width: 25%;
+      float: left;
+      position: relative;
+      text-align: center; }
+      .header-container .progressbar li:first-child a:after {
+        /*connector not needed before the first step*/
+        content: none; }
+      .header-container .progressbar li:last-child a:before {
+        width: 0px;
+        display: none; }
+      .header-container .progressbar li:last-child a:after {
+        background: #fff;
+        display: none; }
+    .header-container .progressbar li > a {
+      list-style-type: none;
+      color: #353c48;
+      text-transform: capitalize;
+      font-size: 13px;
+      width: 100%;
+      float: left;
+      position: relative;
+      text-align: center;
+      /*progressbar connectors*/
+      /*marking active/completed steps green*/
+      /*The number of the step and the connector before it = green*/ }
+      .header-container .progressbar li > a span {
+        color: #fff; }
+      .header-container .progressbar li > a:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 28px;
+        line-height: 27px;
+        display: block;
+        font-size: 14px;
+        color: #000 !important;
+        background: #fff !important;
+        border-radius: 50px;
+        margin: -4px auto 5px auto;
+        font-weight: 500; }
+      .header-container .progressbar li > a:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #fff !important;
+        position: absolute;
+        left: -50%;
+        top: 9px;
+        z-index: -1;
+        /*put it behind the numbers*/ }
+      .header-container .progressbar li > a.active:before {
+        background: #00c8aa !important;
+        color: #fff !important;
+        box-shadow: 0 2px 0px -3px rgba(0, 0, 0, 0.2), 0 0px 0px 0px rgba(0, 0, 0, 0.14), 0 0px 3px 0px rgba(0, 0, 0, 0.12); }
+      .header-container .progressbar li > a.active:before {
+        cursor: pointer; }
+      .header-container .progressbar li > a.active {
+        color: #00c8aa; }
+        .header-container .progressbar li > a.active span {
+          color: #00c8aa; }
+      .header-container .progressbar li > a a {
+        font-weight: 400;
+        font-size: 15px;
+        cursor: pointer; }
+        .header-container .progressbar li > a a:hover {
+          text-decoration: underline; }
+      .header-container .progressbar li > a .top-menu {
+        position: absolute;
+        top: -27px;
+        border: 2px solid #00c8aa;
+        padding: 3px 11px;
+        background-color: #00c8aa;
+        cursor: pointer;
+        right: 45px;
+        width: 145px; }
+        .header-container .progressbar li > a .top-menu a {
+          color: #fff !important; }
+      .header-container .progressbar li > a .bottom-menu {
+        border: 2px solid #17a2b8;
+        padding: 4px 12px;
+        position: absolute;
+        top: 15px;
+        border-top: 0px solid;
+        background-color: #17a2b8;
+        right: 45px;
+        width: 145px; }
+        .header-container .progressbar li > a .bottom-menu a {
+          color: #fff !important; }
+      .header-container .progressbar li > a .top-menu i, .header-container .progressbar li > a .bottom-menu i {
+        color: #fff !important;
+        font-size: 17px;
+        position: relative;
+        top: 1px;
+        float: right;
+        cursor: pointer; }
+
+/*# sourceMappingURL=sidebar.css.map */

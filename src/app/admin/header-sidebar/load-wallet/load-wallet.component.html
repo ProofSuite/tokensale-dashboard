@@ -1,0 +1,35 @@
+<div class="wallet-container" @slideUp>
+  <div class="col-md-12 ether-block padding-left-0">
+    <h3>{{'loadWallet' | translate}}</h3>
+    <div class="etherium-body">
+      <div class="col-md-12 text-center padding-left-0 padding-top-30 padding-bottom-20">
+        <h4>{{'sendAddress' | translate}}</h4>
+        <div class="text-center" pTooltip="{{'qrCode' | translate}}" tooltipPosition="top">
+          <ngx-qrcode [qrc-element-type]="elementType" [qrc-value] = "address">
+          </ngx-qrcode>
+        </div>
+        <div class="clearfix"></div>
+
+        <h4 class="text-center margin-top-10">{{'address' | translate}}</h4>
+        <div class="text-center margin-top-10 break-word address-number" pTooltip="{{'address' | translate}}" tooltipPosition="top">
+          {{address}}
+        </div>
+
+
+        <div class="margin-top-15 margin-bottom-20 text-center">
+          <button type="button" class="btn btn-primary" (click)="backupWallet()" pTooltip="{{'backUpWallet' | translate}}" tooltipPosition="top">{{'backUpWallet' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 text-center">
+          <div class="lightClr col-md-12 padding-left-0 margin-top-5"><small>{{'etherScan' | translate}} <a href="https://etherscan.io/address/{{address}}" target="_blank" class="cursor underline" pTooltip="{{'onEther' | translate}}" tooltipPosition="top">{{'onEther' | translate}}</a></small></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<admin-footer></admin-footer>

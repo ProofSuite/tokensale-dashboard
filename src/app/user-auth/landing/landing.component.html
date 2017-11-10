@@ -1,0 +1,131 @@
+<!-- particles.js container -->
+<div id="landing-particles-js"></div>
+
+<div class="landing-section">
+  <div class="login-section-landing xs-MT10">
+    <div class="col-md-6 col-xs-12 margin-top-10 landing-logo">
+      <img src="assets/img/logo_white.png" width="125"/>
+    </div>
+    <div class="col-md-6 col-xs-12 margin-top-10 right-section">
+      <app-language-selector></app-language-selector>
+      <button class="btn-primary btn btn-block margin-left-5" (click)="loginForm()" pTooltip="{{'login' | translate}}"
+              tooltipPosition="top">{{'login' | translate}}
+      </button>
+      <button class="btn-primary btn btn-block btn-sign-up" (click)="viewRegisterForm()"
+              pTooltip="{{'register' | translate}}" tooltipPosition="top">{{'register' | translate}}
+      </button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="login-section-landing on-left xs-MT10 PL19">
+
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="landing-block">
+    <div class="main-block">
+      <div class="col-md-12 margin-top-30 logo-section-mobile">
+        <h2 class="margin-0">{{landing?.started?'landingTitle1':'landingTitle' | translate}}</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="margin-top-35 clock-timing">
+        <div class="col-md-3">
+          <span>{{'days' | translate}}</span>
+          <input id='check' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="daysPr" data='0'></div>
+        </div>
+
+        <div class="col-md-3">
+          <span>{{'hours' | translate}}</span>
+          <input id='check1' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="hoursPr" data='0'></div>
+        </div>
+
+        <div class="col-md-3">
+          <span>{{'minutes' | translate}}</span>
+          <input id='check2' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="minutesPr" data='0'></div>
+        </div>
+
+        <div class="col-md-3 last-none">
+          <span>{{'seconds' | translate}}</span>
+          <input id='check3' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="secondsPr" data='0'></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="col-md-12 timer-date">
+        <div><span>1st November 13.00 GMT</span></div>
+      </div>
+
+      <div class="col-md-12">
+        <h4 class="subtitle">{{'subTitleLanding' | translate}} :</h4>
+        <h3 class="amount">
+          <span>
+            <img src="assets/img/ethereum.png" width="28"/>
+            </span>
+          <div *ngIf="!landing" class="button-loader landing-loader"></div>
+          {{weiConvertValue(landing?.totalWeiRaised)}}&nbsp;&nbsp;<span>
+            <img src="assets/img/dollar-symbol.png" width="27"/>
+          </span><div *ngIf="!landing" class="button-loader landing-loader"></div>{{dollarRaised}}
+        </h3>
+        <div class="text-right margin-right-35">
+          <span class="subtitle participant-lable">{{'subTitleInvestoren' | translate}} :</span>
+          <span class="amount participant-amount"><i class="material-icons">person_outline</i><div *ngIf="!landing" class="button-loader landing-loader-small"></div> {{landing?.contributors}}</span>
+        </div>
+      </div>
+
+
+      <div class="col-md-12 col-sm-12 col-xs-12 padding-right-0 padding-left-0 margin-top-50 chart-block">
+      <h3 class="bonus-header">{{'bonuses' | translate}}</h3>
+      <div class="bar-chart">
+        <div class="col-md-10 col-sm-12 col-xs-12">
+          <div class="bar-chart-1">
+            <p-chart type="horizontalBar" [data]="data" [options]="options"></p-chart>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10">
+        <div class="col-md-12 padding-left-0 padding-right-0">
+          <div class="logo-icons">
+            <img src="assets/img/ethereum_1.png" width="40"/>
+          </div>
+
+          <div class="value-count">
+            <div class="count-number">{{getProofTokensRaised(landing?.totalSupply)}} / 1,181,031 SYM</div>
+            <div class="count-label">Total Cap</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 padding-left-0 padding-right-0">
+          <div class="logo-icons">
+            <img src="assets/img/ethereum_1.png" width="40"/>
+          </div>
+
+          <div class="value-count">
+            <div class="count-number">{{getTokenPrice()}}</div>
+            <div class="count-label">Token Price</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    </div>
+    <!-- Start Footer -->
+    <div class="margin-top-10">
+      <app-footer></app-footer>
+    </div>
+    <!-- End Footer -->
+  </div>
+</div>
+<div class="clearfix"></div>

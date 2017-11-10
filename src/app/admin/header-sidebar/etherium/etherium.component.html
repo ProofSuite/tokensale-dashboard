@@ -1,0 +1,190 @@
+<div class="etherium-container" @slideUp>
+  <div class="col-md-12 col-sm-12 col-xs-12 text-center ether-block">
+    <h3 class="text-left">{{'getEthereum' | translate}}</h3>
+    <div class="etherium-body">
+      <h5>{{'doYouEther' | translate}}</h5>
+      <button type="button" class="btn btn-primary" (click)="openWallet()">{{'yesIDo' | translate}}</button>
+      <button type="button" class="btn btn-info" (click)="noNeedEther()">{{'noNeedEther' | translate}}</button>
+
+      <!--<div class="margin-top-10">-->
+        <!--<a class="cursor" pTooltip="{{'whatIsThis' | translate}}" tooltipPosition="right">{{'whatIsThis' | translate}}</a>-->
+      <!--</div>-->
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div *ngIf="!isNeedEther">
+    <div class="etherium-header-block">
+      <img src="assets/img/shapeshift.png" width="50"/>
+      <h1 class="byEther-label etherLink" (click)="buyEtherWithBitCoin()">{{'buyBitcoin' | translate}}</h1>
+    </div>
+  </div>
+
+  <div *ngIf="!isNeedEther" class="ether-country-list">
+    <div class="etherium-header-block">
+      <img src="assets/img/exchange.png" width="50"/>
+      <h1 class="byEther-label">{{'buyEther' | translate}}</h1>
+    </div>
+    <!--Country info-->
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span>{{'africa' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.luno.com/en/exchange" target="_blank">{{'luno' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span> {{'asia' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.korbit.co.kr" target="_blank">{{'korBit' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://coinone.co.kr" target="_blank">{{'coinOne' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.binance.com" target="_blank">{{'binance' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://coincheck.com" target="_blank">{{'coincheck' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://anxpro.com" target="_blank">{{'ANX' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span> {{'europe' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://cex.io" target="_blank">{{'CexIo' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.coinbase.com" target="_blank">{{'coinbase' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span> {{'northAmerica' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.coinbase.com" target="_blank">{{'coinbase' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://poloniex.com" target="_blank">{{'polonex' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span> {{'oceana' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://changelly.com" target="_blank">{{'changelly' | translate}}</a>
+        </small>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.coinloft.com.au" target="_blank">{{'coinLoft' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="etherium-panel">
+      <div>
+        <span class="country-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <img class="flag-exchange" src="assets/img/flag.png" width="20"/> <span> {{'southAmerica' | translate}}</span>
+        </span>
+
+        <small class="country-link-label col-md-2 col-sm-4 col-xs-12 padding-left-5">
+          <i class="fa fa-external-link-square" aria-hidden="true"></i>
+          <a href="https://www.coinmama.com/" target="_blank">{{'coinmama' | translate}}</a>
+        </small>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<admin-footer></admin-footer>
+
+
+<!-- Buy ether with Bitcoin -->
+<div class="phone-number-modal" *ngIf="isShowModal == 2" >
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'buyEtherVia' | translate}}<br> {{'shapeShift' | translate}}</h5>
+        <i class="material-icons" (click)="isShowModal = 1">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="text-center bitcoin-title">
+            <div pTooltip="{{'qrCode' | translate}}" tooltipPosition="top">
+              <ngx-qrcode [qrc-element-type]="elementType" [qrc-value] = "address"></ngx-qrcode>
+            </div>
+
+            <h4>{{'Address' | translate}}</h4>
+            <span pTooltip="{{'address' | translate}}" tooltipPosition="top">{{address}}</span>
+            <br>
+            <p class="bitcoind-description">
+              {{'bitcoinPrg' | translate}}<a target="_blank" href="https://shapeshift.zendesk.com/hc/en-us">{{'here' | translate}}</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+
+</div>
+
+<div class="confirm-modal-overay" *ngIf="isShowModal == 2" (click)="isShowModal = 1"></div>
+
+

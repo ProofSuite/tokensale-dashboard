@@ -1,0 +1,107 @@
+<div class="col-md-12 margin-top-20 referral-header" @slideDown>
+  <div class="col-md-6">
+    <a routerLink="/">
+      <img src="assets/img/logo_white.png" width="124">
+    </a>
+  </div>
+
+  <div class="col-md-6 text-right">
+    <app-language-selector></app-language-selector>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="send-container referral-program" @slideUp>
+  <div *ngIf="true" class="send-form">
+    <form [formGroup]="referralCodeForm" (submit)="onReferralCodeSubmit(referralCodeForm.value,referralCodeForm.valid)">
+      <h3 class="col-md-12 col-sm-12 col-xs-12">{{'referralCode' | translate}}</h3>
+      <div class="clearfix"></div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12 padding-left-0 padding-right-0">
+
+        <div class="col-md-12 col-xs-12 col-sm-12 margin-top-15">
+          <div class="label">{{'email' | translate}}</div>
+          <input type="text" class="form-control" placeholder="{{'email' | translate}}" formControlName="email" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(referralCodeForm.get('email'))" [errMsg]="'emailRqrd' | translate"></validation>
+            <validation *ngIf="isValidField(referralCodeForm.get('email'))" [errMsg]="'validEmail' | translate"></validation>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10">
+          <div class="label">{{'ethereumAddress' | translate}}</div>
+          <input class="form-control" placeholder="{{'ethereumAddress' | translate}}" #address (blur)="checkAddress(address.value)" (keyup)="checkAddress(address.value)" formControlName="ethereumAddress" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(referralCodeForm.get('ethereumAddress'))" [errMsg]="'ethereumRqrd' | translate"></validation>
+            <validation *ngIf="!isAddressValid" [errMsg]="'validEthAddress' | translate"></validation>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-15">
+          <button type="submit" class="btn btn-primary" [disabled]="!referralCodeForm.valid" [ngClass]="{'pointer-event':!isAddressValid}">{{'submit' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="margin-top-20 whiteClr">
+          <p>{{'referralInfoMsg' | translate}}</p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+
+  <!--when row length is 0-->
+  <div class="PTB70" *ngIf="false">
+    <div class="col-md-12 text-center">
+      <p>{{'noReferralCode' | translate}} <a class="cursor">{{'clickHere' | translate}}</a>  {{'toGetStarted' | translate}}</p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<admin-footer></admin-footer>
+
+<!-- Success modal -->
+<div class="phone-number-modal success-modal" *ngIf="isShowModal == 2" @dialog>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="text-center margin-top-20">{{'referCodeSuccess' | translate}}</h3>
+        <i class="material-icons" (click)="isShowModal = 1">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body text-center">
+        <div class="col-md-12 margin-top-10">
+          <span><b>{{'yourReferCode' | translate}} </b></span><span class="code">{{referralCode}}</span>
+        </div>
+
+        <div class="col-md-12 margin-top-10 margin-left-10">
+          <div><b>{{'yourReferCodeLink' | translate}} </b></div>
+          <div><a href="{{mainUrl}}?ref={{referralCode}}" target="_blank">{{mainUrl}}?ref={{referralCode}}</a> </div>
+        </div>
+
+        <div class="col-md-12 margin-top-10 margin-left-10">
+          <div><b>{{'referralVisit' | translate}} </b></div>
+          <div><a href="{{mainUrl}}/referral_status" target="_blank">{{mainUrl}}/referral_status</a> </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+</div>
+<div class="confirm-modal-overay" *ngIf="isShowModal == 2" (click)="isShowModal = 1"></div>

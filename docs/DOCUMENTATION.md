@@ -417,13 +417,10 @@ With certain builds the keythereum library may have some compatibility issues wi
 - Refactor code references and headers to have constants and variables stem from a single config file
 - Better in-code test/production segmentation including adding test contracts
 - Easy styling options with a site admin panel
-- More Tests!
-- Improving this document to reflect other problems
 
 # 7. Known Issues
 - Configuration and customization are currently fairly cumbersome
 - Under certain nginx configurations targeting a specific URI breaks the routes
-- Certain windows have reactiveness problems in design.
 
 # 8. Gallery
 

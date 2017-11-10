@@ -1,0 +1,244 @@
+<div class="settings-container">
+  <div class="col-md-12 col-xs-12 user-data" @slideUp>
+    <h3>{{'userInfo' | translate}}</h3>
+    <div class="col-md-4 col-xs-12 padding-left-10 margin-top-10">
+      <label>{{'firstName' | translate}}</label>
+      <div>{{user.firstName}}</div>
+    </div>
+    <div class="col-md-4 col-xs-12 margin-top-10">
+      <label>{{'lastName' | translate}}</label>
+      <div>{{user.lastName}}</div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-md-4 col-xs-12 padding-left-10 margin-top-10">
+      <label>{{'phnNumber' | translate}}</label>
+      <div>{{user.telephoneNumber}}</div>
+    </div>
+    <div class="col-md-4 col-xs-12 margin-top-10">
+      <label>{{'email' | translate}}</label>
+      <div>{{user.email}}</div>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-xs-12 settings-list" @slideUp>
+    <h3 class="main-header">{{'settings' | translate}}</h3>
+    <ul>
+      <li class="padding-top-15" (click)="onShowPhoneNumberModal()">
+        <div>{{'chngePhnNumber' | translate}}</div>
+      </li>
+
+      <li class="padding-top-10">
+        <div>{{'2facotrLogin' | translate}}
+          <p-inputSwitch pTooltip="{{'2facotrLogin' | translate}}" tooltipPosition="bottom" onLabel="Yes" (onChange)="change2FA($event.checked)" class="switch" offLabel="No" [(ngModel)]="checked"></p-inputSwitch>
+        </div>
+      </li>
+
+      <li (click)="onImportWallet()">
+        <div>{{'importWalletFile' | translate}}</div>
+        <small>{{'warningFile' | translate}}</small>
+      </li>
+      <li (click)="onChangePassword()">
+        <div>{{'changePassword' | translate}}</div>
+        <small>{{'deleteCurrentWallet' | translate}}</small>
+      </li>
+    </ul>
+  </div>
+
+
+</div>
+<admin-footer></admin-footer>
+
+<!-- Phone number modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 2" @dialog>
+  <form [formGroup]="phoneNumberForm" (submit)="changePhoneNumber(phoneNumberForm.value.telephoneNumber)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'phnNumber' | translate}}</h5>
+        <i class="material-icons" (click)="isShowModal = 1">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="margin-top-10 col-md-12 countryCode">
+          <div class="col-md-3 padding-left-0">
+            <app-country-code (changeCountry)="onCountryChangeEvent($event)" pTooltip="{{'countryCode' | translate}}" tooltipPosition="top"></app-country-code>
+          </div>
+
+          <div class="col-md-9 padding-right-0">
+            <input type="text"
+                   placeholder="{{'mobileNumber' | translate}}"
+                   pTooltip="{{'mobileNumber' | translate}}"
+                   tooltipPosition="top"
+                   class="form-control"
+                   Autofocus
+                   formControlName="telephoneNumber" required/>
+            <div class="input-validation-msg">
+              <validation *ngIf="isRequiredField(phoneNumberForm.get('telephoneNumber'))" [errMsg]="'phoneNumberRqrd' | translate"></validation>
+              <validation *ngIf="isValidField(phoneNumberForm.get('telephoneNumber'))" [errMsg]="'validPhoneNumber' | translate"></validation>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!phoneNumberForm.valid" pTooltip="{{'update' | translate}}" tooltipPosition="top">{{'update' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+<!-- Change password modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 3" @dialog>
+  <form [formGroup]="changePasswordForm" (submit)="changePasswordORImportWallet(changePasswordForm.value.oldPassword,changePasswordForm.value.newPassword,true)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'phnNumber' | translate}}</h5>
+        <i class="material-icons" (click)="isShowModal = 1">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="margin-top-10 col-md-12">
+          <div>
+            <input type="password" placeholder="{{'oldPassword' | translate}}" Autofocus pTooltip="{{'oldPassword' | translate}}" tooltipPosition="top" class="form-control" formControlName="oldPassword" required/>
+          </div>
+          <div class="clearfix"></div>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(changePasswordForm.get('oldPassword'))" [errMsg]="'pwdRqrd' | translate"></validation>
+            <validation *ngIf="isValidField(changePasswordForm.get('oldPassword'))" [errMsg]="'validPwd' | translate"></validation>
+            <validation *ngIf="isValidLength(changePasswordForm.get('oldPassword'))" [errMsg]="'pwdLenth' | translate"></validation>
+          </div>
+        </div>
+
+        <div class="margin-top-15 col-md-12">
+          <div>
+            <input type="password" placeholder="{{'newPassword' | translate}}" pTooltip="{{'newPassword' | translate}}" tooltipPosition="top" class="form-control" formControlName="newPassword" required/>
+          </div>
+          <div class="clearfix"></div>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(changePasswordForm.get('newPassword'))" [errMsg]="'pwdRqrd' | translate"></validation>
+            <validation *ngIf="isValidField(changePasswordForm.get('newPassword'))" [errMsg]="'validPwd' | translate"></validation>
+            <validation *ngIf="isValidLength(changePasswordForm.get('newPassword'))" [errMsg]="'pwdLenth' | translate"></validation>
+          </div>
+        </div>
+
+        <div class="margin-top-15 col-md-12">
+          <div>
+          <input type="password" placeholder="{{'confirmPassword' | translate}}" pTooltip="{{'confirmPassword' | translate}}" tooltipPosition="top" class="form-control" formControlName="confirmPassword" required/>
+          </div>
+          <div class="clearfix"></div>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(changePasswordForm.get('confirmPassword'))" [errMsg]="'cnfrmPwdRqrd' | translate"></validation>
+            <validation *ngIf="hasError('repeatPassword',changePasswordForm,changePasswordForm.get('confirmPassword'))" [errMsg]="'cnfrmPwdNtMatched' | translate"></validation>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!changePasswordForm.valid" pTooltip="{{'changePassword' | translate}}" tooltipPosition="top">{{'changePassword' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+<!-- Import new wallet modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 4" @dialog>
+  <form [formGroup]="importWalletForm" (submit)="changePasswordORImportWallet(importWalletForm.value.oldPassword,importWalletForm.value.newPassword,false)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'importWalletFile' | translate}}</h5>
+        <i class="material-icons" (click)="isShowModal = 1">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="col-md-12">
+          <input type="password" placeholder="{{'enterOldPassword' | translate}}" Autofocus pTooltip="{{'enterOldPassword' | translate}}" tooltipPosition="top" #oldPass class="form-control" formControlName="oldPassword" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(importWalletForm.get('oldPassword'))" [errMsg]="'pwdRqrd' | translate"></validation>
+            <validation *ngIf="isValidField(importWalletForm.get('oldPassword'))" [errMsg]="'validPwd' | translate"></validation>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-11 padding-right-0 padding-left-0 margin-top-20">
+            <input type="text" placeholder="{{fileName}}" class="form-control" readonly/>
+          </div>
+          <div class="col-md-1 file-icons padding-right-0 padding-right-0 margin-top-20">
+            <input type="file" (change)="selectFile($event.target)" pTooltip="{{fileName}}" class="form-control" required/>
+            <i class="material-icons">attach_file</i>
+          </div>
+        </div>
+        <div class="col-md-12 margin-top-20">
+          <input type="password" #newPass placeholder="{{'enterWalletPassword' | translate}}" pTooltip="{{'enterWalletPassword' | translate}}" tooltipPosition="top" class="form-control" formControlName="newPassword" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(importWalletForm.get('newPassword'))" [errMsg]="'pwdRqrd' | translate"></validation>
+            <validation *ngIf="isValidField(importWalletForm.get('newPassword'))" [errMsg]="'validPwd' | translate"></validation>
+            <validation *ngIf="isValidLength(importWalletForm.get('newPassword'))" [errMsg]="'pwdLenth' | translate"></validation>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!importWalletForm.valid" pTooltip="{{'update' | translate}}" tooltipPosition="top">{{'update' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+
+<!-- Change password modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 5" @dialog>
+  <form [formGroup]="passwordForm" (submit)="onVerifyPassword(passwordForm.value)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'2factorAuthentication' | translate}}</h5>
+        <i class="material-icons" (click)="closeForm()">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="col-md-12">
+            <input type="password" placeholder="{{'enterOldPassword' | translate}}" Autofocus pTooltip="{{'enterOldPassword' | translate}}" tooltipPosition="top" #oldPass class="form-control" formControlName="password" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(passwordForm.get('password'))" [errMsg]="'pwdRqrd' | translate"></validation>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!passwordForm.valid" pTooltip="{{'update' | translate}}" tooltipPosition="top">{{'update' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+<div class="confirm-modal-overay" *ngIf="isShowModal == 2 || isShowModal == 3 || isShowModal == 4 || isShowModal == 5" (click)="closeForm()"></div>

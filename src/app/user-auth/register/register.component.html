@@ -1,0 +1,210 @@
+<div id="register-particles-js"></div>
+
+<div class="ui container login-container">
+  <!-- Start Header -->
+  <div class="login-header">
+    <div class="col-md-3 xs-none"></div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3 col-xs-5 xs-right">
+      <app-language-selector></app-language-selector>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <!-- End Header -->
+
+  <div class="register-block">
+    <div class="register-main-block" @dialog>
+      <!-- Start Login Form -->
+      <div class="main-logo register-form-logo">
+        <img src="assets/img/logo_white.png"/>
+      </div>
+
+      <div class="ui form register-form">
+        <!--Register Form Start-->
+        <div class="login-section" *ngIf="activeForm == 1">
+          <form [formGroup]="registerForm" (submit)="onRegister(registerForm.value,registerForm.valid,country.value)">
+            <div class="field logo">
+              <h3>{{'registration' | translate}}</h3>
+            </div>
+
+            <div class="margin-top-10 col-xs-12 col-md-6">
+              <input type="text" placeholder="{{'firstName' | translate}}"  pTooltip="{{'firstName' | translate}}" tooltipPosition="top" class="form-control" formControlName="firstName" required/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isRequiredField(registerForm.get('firstName'))" [errMsg]="'frstNameRqrd' | translate"></validation>
+                <validation *ngIf="isValidLength(registerForm.get('firstName'))" [errMsg]="'frstNameLnth' | translate"></validation>
+              </div>
+            </div>
+
+            <div class="margin-top-10 col-xs-12 col-md-6">
+              <input type="text" placeholder="{{'lastName' | translate}}" pTooltip="{{'lastName' | translate}}" tooltipPosition="top" class="form-control" formControlName="lastName" required/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isRequiredField(registerForm.get('lastName'))" [errMsg]="'lastNameRqrd' | translate"></validation>
+                <validation *ngIf="isValidLength(registerForm.get('lastName'))" [errMsg]="'lastNameLnth' | translate"></validation>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="margin-top-10 col-xs-12 col-md-12">
+              <input type="text" placeholder="{{'email' | translate}}" (focus)="trackEvent()" pTooltip="{{'email' | translate}}" tooltipPosition="top" class="form-control" formControlName="email" required/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isRequiredField(registerForm.get('email'))" [errMsg]="'emailRqrd' | translate"></validation>
+                <validation *ngIf="isValidField(registerForm.get('email'))" [errMsg]="'validEmail' | translate"></validation>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="margin-top-10 col-xs-12 col-md-6">
+              <input type="password" placeholder="{{'password' | translate}}" pTooltip="{{'password' | translate}}" tooltipPosition="top" class="form-control" formControlName="password" required/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isRequiredField(registerForm.get('password'))" [errMsg]="'pwdRqrd' | translate"></validation>
+                <validation *ngIf="isValidField(registerForm.get('password'))" [errMsg]="'validPwd' | translate"></validation>
+                <validation *ngIf="isValidLength(registerForm.get('password'))" [errMsg]="'pwdLenth' | translate"></validation>
+              </div>
+            </div>
+
+            <div class="margin-top-10 col-xs-12 col-md-6">
+              <input type="password" placeholder="{{'confirmPassword' | translate}}" pTooltip="{{'confirmPassword' | translate}}" tooltipPosition="top" class="form-control" formControlName="confirmPassword" required/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isRequiredField(registerForm.get('confirmPassword'))" [errMsg]="'cnfrmPwdRqrd' | translate"></validation>
+                <validation *ngIf="hasError('repeatPassword',registerForm,registerForm.get('confirmPassword'))" [errMsg]="'cnfrmPwdNtMatched' | translate"></validation>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="margin-top-10 col-md-12 col-xs-12 validation-small">
+              <div class="col-md-3 col-xs-4 xs-PR0 padding-left-0 padding-right-0">
+                <app-country-code (changeCountry)="onCountryChangeEvent($event)" pTooltip="{{'countryCode' | translate}}" tooltipPosition="top"></app-country-code>
+              </div>
+
+              <div class="col-md-9 col-xs-8 padding-right-0">
+                <input type="text" placeholder="{{'mobileNumber' | translate}}" pTooltip="{{'mobileNumber' | translate}}" tooltipPosition="top" class="form-control" formControlName="telephoneNumber" required/>
+                <div class="input-validation-msg">
+                  <validation *ngIf="isRequiredField(registerForm.get('telephoneNumber'))" [errMsg]="'phoneNumberRqrd' | translate"></validation>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="margin-top-10 col-md-6">
+              <div>
+                <input id="country" formControlName="country" autocomplete="off" #country type="text" placeholder="{{'country' | translate}}" pTooltip="{{'country' | translate}}" tooltipPosition="top" class="form-control"/>
+                <input type="hidden" id="country_code"/>
+              </div>
+            </div>
+
+            <div class="margin-top-10 col-md-6">
+              <input type="text" placeholder="{{'referralCode' | translate}} {{'optional' | translate}}" pTooltip="{{'referralCode' | translate}} {{'optional' | translate}}" tooltipPosition="top" class="form-control" formControlName="referralCode"/>
+              <div class="input-validation-msg">
+                <validation *ngIf="isValidLength(registerForm.get('referralCode'))" [errMsg]="'referralCodeLenth' | translate"></validation>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-md-12">
+              <small class="redClr">{{'regiserWarning' | translate}}</small>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="margin-top-10 col-md-12">
+              <button type="submit" class="btn-primary btn btn-block" [disabled]="!registerForm.valid" pTooltip="{{'createAccount' | translate}}" tooltipPosition="top">{{'createAccount' | translate}}</button>
+
+              <div class="text-center whiteClr margin-top-10">
+                <span>{{'alreadyAccount' | translate}} <a (click)="viewLoginForm()"  pTooltip="{{'login' | translate}}" tooltipPosition="top">{{'login' | translate}}</a></span>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+          </form>
+        </div>
+        <!-- End Register Form -->
+
+        <!--OTP Form Start-->
+        <div class="login-section" *ngIf="activeForm == 3">
+          <form [formGroup]="otpForm" (submit)="onOtpSubmit(otpForm.value,otpForm.valid)">
+            <div class="two fields">
+              <div class="field logo">
+                <h3>{{ 'otp' | translate}}</h3>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <input type="text" placeholder="{{ 'otp' | translate}}" pTooltip="{{'otp' | translate}}" Autofocus tooltipPosition="top" class="form-control" formControlName="OTP" required/>
+                <div class="input-validation-msg">
+                  <validation *ngIf="isRequiredField(otpForm.get('OTP'))" [errMsg]="'otpRqrd' | translate"></validation>
+                  <validation *ngIf="isValidLength(otpForm.get('OTP'))" [errMsg]="'otpLnth' | translate"></validation>
+                  <validation *ngIf="isValidField(otpForm.get('OTP'))" [errMsg]="'validOtp' | translate"></validation>
+                </div>
+              </div>
+              <div class="field resendOtp text-right">
+                <a (click)="resendOtp()" pTooltip="{{'resendOtp' | translate}}" tooltipPosition="top">{{'resendOtp' | translate}}</a>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <button type="submit" class="btn-primary btn btn-block" pTooltip="{{'verifyOTP' | translate}}" tooltipPosition="top" [disabled]="!otpForm.valid">{{'verifyOTP' | translate}}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End Otp Form -->
+      </div>
+
+      <!-- Read and Confirm to proceed -->
+      <div class="read-confirm-modal-container" @dialog *ngIf="activeModal == 2">
+        <form [formGroup]="termsAndConditionForm" (submit)="onTermsAndConditionConfirmSubmit(termsAndConditionForm.value,termsAndConditionForm.valid)">
+          <div class="modal-header">
+            <h5>Read and confirm to proceed</h5>
+            <i class="material-icons" (click)="activeModal = 1">close</i>
+          </div>
+
+          <div class="modal-body">
+            <div class="col-md-6 col-sm-12 col-xs-12 margin-top-20">
+              <label>
+                <input type="checkbox" formControlName="check1" Autofocus required/>
+                <span>{{'terms1' | translate}}</span>
+              </label>
+            </div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 margin-top-20">
+              <label>
+                <input type="checkbox" formControlName="check2" required/>
+                <span>{{'terms21' | translate}} <a (click)="isOpenModal(true,2)">{{'termsAndCondition' | translate}}</a> and <a (click)="isOpenModal(true,3)">{{'privacyPolicy' | translate}}</a> {{'terms22' | translate}}</span>
+              </label>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 margin-top-20">
+              <label>
+                <input type="checkbox" formControlName="check3" required/>
+                <span>{{'terms31' | translate}} <a (click)="isOpenModal(true,1)">{{'termsOfTokenSale' | translate}}</a> {{'terms32' | translate}}</span>
+              </label>
+            </div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 margin-top-20">
+              <label>
+                <input type="checkbox" formControlName="check4" required/> <span>{{'terms4' | translate}} <a href="https://www.proofsuite.com/media/whitepaper.pdf" target="_blank">{{'whitePaper' | translate}}</a>.</span>
+              </label>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="modal-footer">
+            <div class="col-md-12 col-sm-12 col-xs-12 padding-left-0 padding-right-0">
+              <button class="btn btn-block btn-primary" type="submit" pTooltip="{{'confirm' | translate}}" tooltipPosition="top" [disabled]="!termsAndConditionForm.valid">{{'confirm' | translate}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Overlay -->
+      <div class="confirm-modal-overay"  *ngIf="activeModal == 2" (click)="activeModal = 1"></div>
+      <div class="clearfix"></div>
+    </div>
+    <!-- Start Footer -->
+    <app-footer></app-footer>
+    <!-- End Footer -->
+  </div>
+</div>

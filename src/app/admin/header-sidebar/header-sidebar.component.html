@@ -1,0 +1,233 @@
+<!-- App Sidebar -->
+<div class="sidebar-container box-shadow desktop-view" *ngIf="isOpenSidebar" @sideAmination>
+  <!-- Start Sidebar Toggle icon -->
+  <div class="toggleIcon desktop-view">
+    <i class="material-icons open" (click)="onToggleSidebar()" pTooltip="{{'hide' | translate}}" tooltipPosition="top" *ngIf="this.isOpenSidebar">keyboard_arrow_left</i>
+  </div><!-- End Sidebar Toggle icon -->
+
+  <div class="logo">
+    <img src="assets/img/logo_white.png"/>
+  </div>
+  <ul class="userProfile">
+    <li pTooltip="{{user?.email}}" tooltipPosition="right">
+      <a routerLinkActive="active" [routerLink]="settingsUrl">
+        <i class="material-icons">tag_faces</i>
+        <div>{{user?.email}}</div>
+        <div class="clearfix"></div>
+      </a>
+      <div class="clearfix"></div>
+    </li>
+  </ul>
+
+  <ul class="navbar-menu">
+    <li tooltipPosition="top">
+      <a [routerLink]="transactionHistoryUrl" routerLinkActive="active">
+        <i class="material-icons">history</i> <span>{{'transactionHistory' | translate}}</span>
+      </a>
+    </li>
+
+    <li tooltipPosition="top">
+      <a [routerLink]="sendUrl" routerLinkActive="active">
+        <i class="material-icons">send</i> <span>{{'send' | translate}}</span>
+      </a>
+    </li>
+
+    <li tooltipPosition="top">
+      <a [routerLink]="etherUrl" routerLinkActive="active">
+        <i class="material-icons">settings_ethernet</i> <span>{{'etherBalance' | translate}}</span>
+      </a>
+    </li>
+
+    <li tooltipPosition="top">
+      <a [routerLink]="tokenUrl" routerLinkActive="active">
+        <i class="material-icons">account_balance</i> <span>{{'tokenBalance' | translate}}</span>
+      </a>
+    </li>
+
+    <li tooltipPosition="top">
+      <a [routerLink]="addressInfoUrl" routerLinkActive="active">
+        <i class="material-icons">note_add</i> <span>{{'addressInfo' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="settingsUrl" class="settings" routerLinkActive="active" tooltipPosition="top">
+        <i class="material-icons">settings</i>
+        <span>{{'settings' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLinkActive="active" class="logout" (click)="logout()" tooltipPosition="top">
+        <i class="material-icons">power_settings_new</i>
+        <span>{{'logout' | translate}}</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-left-10">
+    <div class="col-md-12 padding-left-0 padding-right-0">
+      <div class="logo-icons">
+        <img src="assets/img/ethereum_1.png" width="40"/>
+      </div>
+
+      <div class="value-count">
+        <div class="count-number">{{getProofTokensRaised(landing?.totalSupply)}} / 1,181,031 SYM</div>
+
+        <div class="count-label">Total Cap</div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-md-12 padding-left-0 padding-right-0">
+      <div class="logo-icons">
+        <img src="assets/img/ethereum_1.png" width="40"/>
+      </div>
+
+      <div class="value-count">
+        <div class="count-number">{{getTokenPrice()}}</div>
+        <div class="count-label">Token Price</div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <ul class="admin-profile navbar-menu">
+    <div class="language-dropdown">
+      <div class="language-select">
+        <app-language-selector></app-language-selector>
+      </div>
+    </div>
+  </ul>
+</div><!-- End Sidebar -->
+
+<!-- Start Sidebar Toggle icon -->
+<div class="toggleIcon desktop-view">
+  <i class="material-icons close" (click)="onToggleSidebar()" pTooltip="{{'show' | translate}}" tooltipPosition="right" *ngIf="!this.isOpenSidebar">menu</i>
+</div><!-- End Sidebar Toggle icon -->
+
+
+<!-- App Mobile Sidebar -->
+<div class="sidebar-container box-shadow mobile-view" *ngIf="isOpenMobileSidebar" @sideAmination>
+  <div class="toggleIcon mobile-view">
+    <i class="material-icons open" (click)="onMobileToggleSidebar()" *ngIf="this.isOpenMobileSidebar">keyboard_arrow_left</i>
+  </div><!-- End Sidebar Toggle icon -->
+  <div class="logo">
+    <img src="assets/img/logo_white.png"/>
+  </div>
+  <ul class="userProfile">
+    <li>
+      <a routerLinkActive="active" [routerLink]="settingsUrl" (click)="closeSidebar()">
+        <i class="material-icons">tag_faces</i>
+        <div title="{{user?.email}}">{{user?.email}}</div>
+        <div class="clearfix"></div>
+      </a>
+      <div class="clearfix"></div>
+    </li>
+  </ul>
+  <ul class="navbar-menu">
+    <li>
+      <a [routerLink]="transactionHistoryUrl" routerLinkActive="active" (click)="closeSidebar()">
+        <i class="material-icons">history</i> <span>{{'transactionHistory' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="sendUrl" routerLinkActive="active" (click)="closeSidebar()">
+        <i class="material-icons">send</i> <span>{{'send' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="etherUrl" routerLinkActive="active" (click)="closeSidebar()">
+        <i class="material-icons">settings_ethernet</i> <span>{{'etherBalance' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="tokenUrl" routerLinkActive="active" (click)="closeSidebar()">
+        <i class="material-icons">account_balance</i> <span>{{'tokenBalance' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="addressInfoUrl" routerLinkActive="active" (click)="closeSidebar()">
+        <i class="material-icons">note_add</i> <span>{{'addressInfo' | translate}}</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="settingsUrl" routerLinkActive="active" class="settings" (click)="closeSidebar()">
+        <i class="material-icons">settings</i>
+        <span>{{'settings' | translate}}</span>
+      </a>
+    </li>
+    <li>
+      <a routerLinkActive="active" class="logout" (click)="logout()">
+        <i class="material-icons">power_settings_new</i>
+        <span>{{'logout' | translate}}</span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="admin-profile navbar-menu">
+
+    <div class="language-dropdown">
+      <div class="language-select">
+        <app-language-selector></app-language-selector>
+      </div>
+    </div>
+  </ul>
+</div><!-- End Mobile Sidebar -->
+
+<!-- Start Sidebar Toggle icon -->
+<div class="toggleIcon mobile-view">
+  <i class="material-icons close" (click)="onMobileToggleSidebar()" *ngIf="!this.isOpenMobileSidebar">menu</i>
+</div><!-- End Sidebar Toggle icon -->
+
+<!-- Start Header -->
+<div [ngClass]="{'body-container':true,'sidePanelHide':!isOpenSidebar}" @slideDown>
+  <div class="header-container">
+    <ul class="progressbar">
+      <li (click)="currentRoute()" [ngClass]="{'twoTabActive':currentPath == 'wallet','AllTabActive':currentPath == 'buy-token'}">
+        <a [routerLink]="ethereumUrl" routerLinkActive="active">
+          <span>{{'getEthereum' | translate}}</span>
+        </a>
+      </li>
+
+      <li (click)="currentRoute();walletUrlEvent()" [ngClass]="{'twoTabActive':currentPath == 'wallet','AllTabActive':currentPath == 'buy-token'}">
+        <a [routerLink]="walletUrl" routerLinkActive="active">
+          <span>{{'sendEtheriumWallet' | translate}}</span>
+        </a>
+      </li>
+
+      <li (click)="currentRoute();buyTokensEvent()" [ngClass]="{'AllTabActive':currentPath == 'buy-token'}">
+        <a [routerLink]="buyTokens" routerLinkActive="active">
+          <span>{{'buyPrftTokens' | translate}}</span>
+        </a>
+      </li>
+
+      <li>
+        <a>
+          <div class="top-menu">
+            <a [routerLink]="etherUrl" pTooltip="{{'etherBalance' | translate}}" tooltipPosition="left" routerLinkActive="active">
+              <div *ngIf="loaderEther" class="button-loader"></div>
+              <span *ngIf="!loaderEther">{{etherBalance}} ETH</span>
+            </a>
+            <i class="material-icons" pTooltip="{{'refresh' | translate}}" tooltipPosition="right" (click)="loaderEther=true;checkAccountBalance(address)">refresh</i>
+          </div>
+          <div class="bottom-menu">
+            <a [routerLink]="tokenUrl" pTooltip="{{'tokenBalance' | translate}}" tooltipPosition="left" routerLinkActive="active">
+              <div *ngIf="loaderProof" class="button-loader"></div>
+              <span *ngIf="!loaderProof">{{tokenBalance}} SYM</span>
+            </a>
+            <i class="material-icons" pTooltip="{{'refresh' | translate}}" tooltipPosition="right" (click)="loaderProof=true;checkProofAccountBalance(address)">refresh</i>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- End Header -->

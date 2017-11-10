@@ -1,0 +1,6 @@
+<progress-hud></progress-hud>
+<header-sidebar *ngIf="showHeader" (menuToggle)="isOpen = $event;"></header-sidebar>
+
+<div [ngClass]="{'body-container': showHeader,'sidePanelHide': !isOpen}">
+  <router-outlet></router-outlet>
+</div>

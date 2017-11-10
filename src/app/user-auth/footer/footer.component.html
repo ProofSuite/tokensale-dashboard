@@ -1,0 +1,229 @@
+<!-- Start Footer -->
+<div class="col-md-12 login-footer">
+  <div class="col-md-4 col-sm-12 col-xs-12 copy-right margin-top-15">
+    <div>© 2017 Proof Suite Inc. All rights reserved</div>
+  </div>
+
+  <div class="col-md-4 col-sm-12 col-xs-12 footer-hyper-link">
+    <div>
+      {{'doYouQuestion' | translate}}
+      <a href="mailto:support@proofsuite.com">support@proofsuite.com</a>
+    </div>
+    <div class="margin-top-10">
+      <a (click)="home()">{{'home' | translate}}</a>
+      <a (click)="showtermDialog()">{{'term' | translate}}</a>
+      <a (click)="showtermAndConditionDialog()">{{'termsAndCondition' | translate}}</a>
+      <a (click)="showPrivacyPolicyDialog()">{{'privacyPolicy' | translate}}</a>
+      <a href="https://medium.com/proof-of-fintech" target="_blank">{{'blog' | translate}}</a>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-12 col-xs-12 social-icons-before-login margin-top-10">
+    <a href="https://www.facebook.com/proofsuite" pTooltip="{{'facebook' | translate}}" tooltipPosition="top" class="facebook" target="_blank">
+      <i class="fa fa-facebook-square"></i>
+    </a>
+
+    <a href="https://twitter.com/proofsuite" pTooltip="{{'twitter' | translate}}" tooltipPosition="top" class="twitter" target="_blank">
+      <i class="fa fa-twitter-square"></i>
+    </a>
+
+    <a href="https://t.me/joinchat/GA2etRCGHM8aArHAwrZNMQ" pTooltip="{{'telegram' | translate}}" tooltipPosition="top" class="telegram" target="_blank">
+      <i class="fa fa-telegram"></i>
+    </a>
+
+    <a href="https://medium.com/proof-of-fintech" pTooltip="{{'medium' | translate}}" tooltipPosition="top" class="medium" target="_blank">
+      <i class="fa fa-medium"></i>
+    </a>
+
+    <a href="https://github.com/proofsuite" pTooltip="{{'github' | translate}}" tooltipPosition="top" class="github" target="_blank">
+      <i class="fa fa-github-square"></i>
+    </a>
+  </div>
+</div>
+<div class="clearfix"></div><!-- End Footer -->
+
+
+<!--Token Sales Terms Dialog -->
+<p-dialog header="{{'tokenSalesTerms' | translate}}" [(visible)]="termsDialog" modal="modal" width="1000" [responsive]="true">
+  <div class="col-md-12">
+    <h3>{{'tstHeader' | translate}}</h3>
+    <p>{{'ttp1' | translate}}</p>
+    <p>{{'ttp2' | translate}}</p>
+    <p>{{'ttp3' | translate}}</p>
+    <p>{{'ttp4' | translate}}</p>
+    <p>{{'ttp5' | translate}}</p>
+
+    <h3>{{'tokenTransferAgreement' | translate}}</h3>
+    <p>{{'ttp6' | translate}}</p>
+    <p>{{'ttp7' | translate}}</p>
+
+    <h4>{{'ttSection1' | translate}}</h4>
+    <p>{{'ttSection11' | translate}}</p>
+
+    <h4>{{'ttSection2' | translate}}</h4>
+    <p>{{'ttSection21' | translate}}</p>
+    <p>{{'ttSection22' | translate}}</p>
+
+    <h4>{{'ttSection3' | translate}}</h4>
+    <p>{{'ttSection31' | translate}}</p>
+
+    <h4>{{'ttSection4' | translate}}</h4>
+    <p>{{'ttSection41' | translate}}</p>
+    <p>{{'ttSection42' | translate}}</p>
+
+    <h4>{{'ttSection5' | translate}}</h4>
+    <p>{{'ttSection51' | translate}}</p>
+
+    <h4>{{'ttSection6' | translate}}</h4>
+    <p>{{'ttSection61' | translate}}</p>
+
+    <h4>{{'ttSection7' | translate}}</h4>
+    <p>{{'ttSection71' | translate}}</p>
+
+    <h4>{{'ttSection8' | translate}}</h4>
+    <p>{{'ttSection81' | translate}}</p>
+
+    <h4>{{'ttSection9' | translate}}</h4>
+    <p>{{'ttSection91' | translate}}</p>
+
+    <h4>{{'ttSection10' | translate}}</h4>
+    <p>{{'ttSection101' | translate}}</p>
+
+    <h4>{{'ttSectionE11' | translate}}</h4>
+    <p>{{'ttSectionE111' | translate}}</p>
+    <p>{{'ttSectionE112' | translate}}</p>
+
+    <h4>{{'ttSectionE12' | translate}}</h4>
+    <p>{{'ttSectionE121' | translate}}</p>
+
+    <h4>{{'ttSectionE13' | translate}}</h4>
+    <p>{{'ttSectionE131' | translate}}</p>
+
+    <h4>{{'ttSectionE14' | translate}}</h4>
+    <p>{{'ttSectionE141' | translate}}</p>
+    <p>{{'ttSectionE142' | translate}}</p>
+    <p>{{'ttSectionE143' | translate}}</p>
+    <p>{{'ttSectionE144' | translate}}</p>
+    <p>{{'ttSectionE145' | translate}}</p>
+    <p>{{'ttSectionE146' | translate}}</p>
+    <p>{{'ttSectionE147' | translate}}</p>
+  </div>
+</p-dialog>
+
+
+<!--Terms and Condition Dialog -->
+<p-dialog header="{{'tcHeader' | translate}}" [(visible)]="termsAndConditionDialog" modal="modal" width="1000" [responsive]="true">
+  <div class="col-md-12">
+    <p>{{'tcp1' | translate}}</p>
+    <p>{{'tcp2' | translate}}</p>
+    <p>{{'tcp3' | translate}}</p>
+    <p>{{'tcp4' | translate}}</p>
+    <p>{{'tcp5' | translate}}</p>
+    <p>{{'tcp6' | translate}}</p>
+    <p>{{'tcp7' | translate}}</p>
+    <p>{{'tcp8' | translate}}</p>
+    <p>{{'tcp9' | translate}}</p>
+
+    <h3>{{'tcSection1' | translate}}</h3>
+    <p>{{'tcSection11' | translate}}</p>
+    <p>{{'tcSection12' | translate}}</p>
+    <p>{{'tcSection13' | translate}}</p>
+    <p>{{'tcSection14' | translate}}</p>
+
+    <h3>{{'tcSection2' | translate}}</h3>
+    <p>{{'tcSection21' | translate}}</p>
+    <p>{{'tcSection22' | translate}}</p>
+    <p>{{'tcSection23' | translate}}</p>
+    <p>{{'tcSection24' | translate}}</p>
+
+    <h3>{{'tcSection3' | translate}}</h3>
+    <p>{{'tcSection31' | translate}}</p>
+    <p>{{'tcSection32' | translate}}</p>
+
+    <h3>{{'tcSection4' | translate}}</h3>
+    <p>{{'tcSection41' | translate}}</p>
+    <p>{{'tcSection42' | translate}}</p>
+
+    <h3>{{'tcSection5' | translate}}</h3>
+    <p>{{'tcSection51' | translate}}</p>
+    <p>{{'tcSection511' | translate}}</p>
+    <p>{{'tcSection512' | translate}}</p>
+    <p>{{'tcSection513' | translate}}</p>
+
+    <h3>{{'tcSection6' | translate}}</h3>
+    <p>{{'tcSection61' | translate}}</p>
+
+    <h3>{{'tcSection7' | translate}}</h3>
+    <p>{{'tcSection71' | translate}}</p>
+
+    <h3>{{'tcSection8' | translate}}</h3>
+    <p>{{'tcSection81' | translate}}</p>
+
+    <h3>{{'tcSection9' | translate}}</h3>
+    <p>{{'tcSection91' | translate}}</p>
+
+    <h3>{{'tcSection10' | translate}}</h3>
+    <p>{{'tcSection101' | translate}}</p>
+
+    <h3>{{'tcSectionE11' | translate}}</h3>
+    <p>{{'tcSectionE111' | translate}}</p>
+
+    <h3>{{'tcSectionE12' | translate}}</h3>
+    <p>{{'tcSectionE121' | translate}}</p>
+
+    <h3>{{'tcSectionE13' | translate}}</h3>
+    <p>{{'tcSectionE131' | translate}}</p>
+
+    <h3>{{'tcSectionE14' | translate}}</h3>
+    <p>{{'tcSectionE141' | translate}}</p>
+  </div>
+</p-dialog>
+
+<!--Privacy Policy Dialog -->
+<p-dialog header="{{'privacyStatement' | translate}}" [(visible)]="privacyPolicyDialog" modal="modal" width="1000" [responsive]="true">
+  <div class="col-md-12">
+    <h3>{{'pSection1' | translate}}</h3>
+    <p>{{'pSection11' | translate}}</p>
+    <p>{{'pSection12' | translate}}</p>
+    <p>{{'pSection13' | translate}}</p>
+
+    <h3>{{'pSection2' | translate}}</h3>
+    <p>{{'pSection21' | translate}}</p>
+    <p>{{'pSection22' | translate}}</p>
+    <p>{{'pSection23' | translate}}</p>
+    <p>{{'pSection24' | translate}}</p>
+    <p>{{'pSection25' | translate}} <a href="mailto:support@proofsuite.com">support@proofsuite.com.</a> </p>
+
+    <h3>{{'pSection3' | translate}}</h3>
+    <p>{{'pSection31' | translate}}</p>
+
+    <h3>{{'pSection4' | translate}}</h3>
+    <p>{{'pSection41' | translate}}</p>
+    <h4>{{'pSection411' | translate}}</h4>
+    <p>{{'pSection42' | translate}}</p>
+
+    <h3>{{'pSection5' | translate}}</h3>
+    <p>{{'pSection51' | translate}}</p>
+    <p>{{'pSection52' | translate}}</p>
+    <p>{{'pSection53' | translate}}</p>
+    <p>{{'pSection54' | translate}}</p>
+    <h4>{{'pSection511' | translate}}</h4>
+    <p>{{'pSection55' | translate}}</p>
+
+    <h3>{{'pSection6' | translate}}</h3>
+    <p>{{'pSection61' | translate}}</p>
+    <p>{{'pSection62' | translate}}</p>
+
+    <h3>{{'pSection7' | translate}}</h3>
+    <p>{{'pSection71' | translate}}</p>
+
+    <h3>{{'pSection8' | translate}}</h3>
+    <p>{{'pSection81' | translate}}</p>
+
+    <h3>{{'pSection9' | translate}}</h3>
+    <p>{{'pSection91' | translate}}</p>
+
+    <div>{{'pSection10' | translate}}</div>
+    <div class="margin-top-10">{{'pSection101' | translate}}</div>
+  </div>
+</p-dialog>

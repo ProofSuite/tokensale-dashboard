@@ -1,0 +1,102 @@
+@media only screen and (min-width: 768px) and (max-width: 1108px) {
+  .ui-datatable-tablewrapper {
+    overflow: auto;
+    width: 100% !important; }
+
+  .ui-datatable table {
+    width: 1000px !important;
+    overflow: auto; }
+
+  .header-container .progressbar li a .top-menu {
+    top: -22px;
+    right: 5px;
+    width: 123px;
+    padding: 3px 0px; }
+  .header-container .progressbar li a .bottom-menu {
+    top: 31px;
+    right: 5px;
+    width: 123px; } }
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .desktop-view {
+    display: none; }
+
+  .mobile-view {
+    display: block; }
+
+  .break-word {
+    word-break: break-all; }
+
+  .body-container, .sidePanelHide {
+    margin-left: 5px !important;
+    padding: 0px !important; }
+
+  .sidebar-container.mobile-view {
+    z-index: 999 !important;
+    width: 90% !important;
+    border-right: 2px solid #868686 !important; }
+    .sidebar-container.mobile-view ul.navbar-menu li .logout {
+      bottom: 85px !important; }
+    .sidebar-container.mobile-view ul.navbar-menu li .settings {
+      bottom: 125px !important; }
+
+  .toggleIcon {
+    z-index: 999 !important; }
+    .toggleIcon .open {
+      position: fixed;
+      left: 82.3% !important; }
+
+  .header-container .progressbar {
+    padding-left: 0px;
+    padding-top: 18px !important; }
+    .header-container .progressbar li {
+      width: 33% !important; }
+      .header-container .progressbar li a span {
+        font-size: 12px; }
+      .header-container .progressbar li:last-child {
+        width: 100% !important; }
+    .header-container .progressbar .top-menu, .header-container .progressbar .bottom-menu {
+      padding: 4px 7px !important;
+      position: relative !important;
+      left: 0px !important;
+      float: left;
+      top: 0px !important;
+      margin-left: 10px;
+      width: 132px !important;
+      margin-top: 7px; }
+
+  .ui-datatable-tablewrapper {
+    overflow: auto;
+    width: 100% !important; }
+
+  .ui-datatable table {
+    width: 1000px !important;
+    overflow: auto; }
+
+  .etherium-body h4 {
+    margin-top: 10px !important; }
+  .etherium-body .balanceDetails {
+    padding: 0px !important;
+    margin-top: 10px !important; }
+
+  .user-data .col-md-4.col-xs-12 {
+    padding-left: 10px !important; }
+
+  .phone-number-modal {
+    width: 300px !important;
+    left: calc(50% - 150px) !important;
+    z-index: 999; }
+    .phone-number-modal .modal-header h5 {
+      font-size: 18px !important;
+      padding-top: 8px !important;
+      font-weight: 500 !important; }
+    .phone-number-modal .file-icons {
+      left: -16px !important; }
+    .phone-number-modal .countryCode .col-md-3 {
+      padding-right: 0px !important; }
+
+  .etherium-container .ether-block .etherium-body button.btn {
+    width: 130px !important; }
+  .etherium-container .ether-block .etherium-body .cursor {
+    width: 263px !important; } }
+
+/*# sourceMappingURL=responsive.css.map */

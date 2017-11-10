@@ -1,0 +1,15 @@
+.admin-footer{
+
+    position: absolute;
+    bottom: 3%;
+    width: 86%;
+
+}
+
+@media screen and (min-width:320px) and (max-width:1400px) {
+	
+	.admin-footer {
+		position: relative !important;
+		width: 100%;
+	}
+}

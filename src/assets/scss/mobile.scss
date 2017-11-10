@@ -1,0 +1,185 @@
+$mobile: "(max-width: 767px)";
+
+@media #{$mobile}{
+  .footer-hyper-link a {
+    margin-right: 15px!important;
+    margin-left: 5px!important;
+    display: inline-block;
+    padding: 8px 0px!important;
+    text-align: center;
+  }
+  .login-block,.register-block,.landing-block{
+    width: 100% !important;
+    position: relative !important;
+    margin-top: 20px !important;
+    left: inherit!important;
+    top: inherit!important;
+  }
+  .read-confirm-modal-container,
+  .phone-number-modal{
+    background-color: $darkColor;
+    width: 92%!important;
+    left: inherit!important;
+    top: 5%!important;
+  }
+
+  .xs-MT10{
+    margin-top: 10px !important;
+  }
+  .landing-section{
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .logo-section-mobile{
+    margin-top: 10px !important;
+    img{
+      width: 80px;
+    }
+    h2{
+      font-size: 22px !important;
+      font-weight: normal;
+    }
+  }
+  .clock-timing{
+    margin-top: 15px !important;
+    .col-md-3{
+      padding: 0px !important;
+    }
+  }
+  .taas-value{
+    h4{
+      font-size: 13px !important;
+    }
+    a{
+      font-size: 11px !important;
+    }
+  }
+  .landing-section{
+    .amount{
+      font-size: 18px !important;
+      span{
+        img{
+          width: 14px !important;
+        }
+      }
+    }
+  }
+  .login-section-landing{
+    .on-right.padding-top-10{
+      padding-top: 0px !important;
+    }
+    button{
+      width: 80px !important;
+      padding: 5px !important;
+      margin-top: 10px !important;
+    }
+  }
+  .login-container{
+    .col-md-12.col-xs-6.margin-top-10{
+      text-align: left !important;
+      padding-left: 0px !important;
+      img{
+        width: 80px;
+      }
+    }
+  }
+  .left-menu-fixed{
+    top: 55px !important;
+    ul{
+      li{
+        float: left;
+        margin-bottom: 5px !important;
+        a{
+          i{
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+  .complete-section{
+    margin-top: 70px !important;
+    h4{
+      margin: 4px 0px !important;
+    }
+    img{
+      width: 70px;
+    }
+  }
+  .right-menu-fixed{
+    display: none;
+  }
+  .right-menu-mobile{
+    display: block !important;
+    .menu{
+      width: 100%;
+      background: #596C7D;
+      margin-bottom: 10px;
+      .title{
+        background: #131f29;
+        padding: 8px 0;
+        color: #ffffff;
+      }
+      .data{
+        padding: 5px;
+        box-sizing: border-box;
+        div{
+          margin-bottom: 5px;
+          color: #ffffff;
+          a{
+            color: $white;
+            cursor: pointer;
+            &:hover{
+              color: #00c8aa !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .login-header{
+    .xs-none{
+      display: none !important;
+    }
+  }
+  .register-form{
+    width: 100% !important;
+    padding: 5px 10px 5px 10px !important;
+  }
+  .main-logo{
+    margin-top: 10px !important;
+    img{
+      padding: 5px 0px 0px 0px !important;
+      width: 80px !important;
+    }
+  }
+  .login-container{
+    .login-form{
+      width: 100% !important;
+      padding: 5px 10px 5px 10px !important;
+    }
+    .main-logo{
+      width: 100% !important;
+    }
+  }
+  .xs-right{
+    float: right;
+    padding-right: 0px !important;
+  }
+  .xs-PL0{
+    padding-left: 0px !important;
+  }
+  .xs-PR0{
+    padding-right: 0px !important;
+  }
+  .login-header{
+    padding-top: 8px !important;
+  }
+  .validation-small{
+    .errorMsgStyle{
+      span{
+        font-size: 9px !important;
+      }
+    }
+  }
+}

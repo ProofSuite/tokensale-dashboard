@@ -1,0 +1,261 @@
+/* You can add global styles to this file, and also import other style files */
+body,.ui-widget{
+  font-family: 'Lato', sans-serif!important;
+}
+.ui-widget{
+  font-size: 13px!important;
+}
+
+validation + validation{
+  display: none;
+}
+
+.ng-valid.ng-untouched + .input-validation-msg > validation{
+  display: none;
+}
+
+.input-validation-msg{
+  height: 16px;
+  text-align: left;
+}
+
+#particles-js,#register-particles-js,#login-particles-js,#landing-particles-js{
+  width: 100%;
+  height: 100%;
+  /*background-color:#353c48;*/
+  background: linear-gradient(#353c48,#303438,#3a3939);
+  background: -webkit-linear-gradient(#353c48,#303438,#3a3939);
+  background: -moz-linear-gradient(#353c48,#303438,#3a3939);
+  background: -o-linear-gradient(#353c48,#303438,#3a3939);
+  background: -ms-linear-gradient(#353c48,#303438,#3a3939);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: fixed;
+  overflow: hidden;
+}
+.ui-inputtext {
+  background: #353c48!important;
+  color: #fff!important;
+}
+.ui-dropdown .ui-dropdown-label {
+  padding-right: 2.5em!important;
+  outline: 0;
+}
+.ui-dropdown.ui-state-focus, .ui-multiselect.ui-state-focus{
+  box-shadow: 0px 0px 0px #353c48!important;
+}
+.ui-state-highlight {
+  background: #353c48!important;
+  color: #FFFFFF!important;
+  padding: 4px 6px!important;
+}
+.ui-datatable .ui-datatable-data>tr>td {
+  padding: 0.50em .5em!important;
+  border-width: 0px!important;
+}
+.ui-datatable th.ui-state-default,
+.ui-datatable th.ui-sortable-column:not(.ui-state-active):hover,
+.ui-datatable th.ui-state-active,
+.ui-datatable .ui-datatable-thead>tr>th{
+  background: #353c48!important;
+  border-color: #353c48!important;
+  padding: 0.5em .5em!important;
+  border-width: 1px!important;
+  color: #04e4c3;
+}
+
+.ui-datatable thead th, .ui-datatable tfoot td{
+  text-align: left!important;
+}
+.ui-datatable tbody > tr.ui-widget-content.ui-datatable-odd {
+  background-color:#424b58!important;
+}
+select.form-control:not([size]):not([multiple]) {
+  padding-top: 4px!important;
+}
+.box-shadow{
+  /*box-shadow: 0 -2px 4px -3px rgba(0,0,0,.2), 0 0px 3px 1px rgba(0,0,0,.14), 0 2px 0px 0px rgba(0,0,0,.12);*/
+}
+.switch{
+  position: relative;
+  top: 4px;
+  margin-left: 20px;
+}
+
+.ui-inputswitch .ui-inputswitch-off span {
+  color: #fff;
+  background-color: #ff3939;
+}
+.ui-widget-content {
+  border: 1px solid rgb(60, 68, 82)!important;
+  background: rgb(60, 68, 82)!important;
+  color: #222222!important;
+}
+.ui-datatable .ui-datatable-data>tr>td {
+  color: #d6d6d6!important;
+}
+.ui-dropdown-items.ui-widget-content span{
+  color: #fff!important;
+}
+.ui-dropdown-panel .ui-dropdown-item:not(.ui-state-highlight):hover span{
+  color: #000!important;
+}
+/*.ui-cell-data{*/
+  /*word-break: break-all;*/
+/*}*/
+.ui-messages-success {
+  background-color: #019e87!important;
+  border-color: #019e87!important;
+  border-radius: 0px!important;
+}
+.sucess-msg{
+  margin-right: 8px;
+}
+.ui-messages-success a.hasMsg,.ui-messages-success a.hasMsg:hover{
+  color: #1400ff!important;
+}
+.ui-messages-detail{
+  margin-left: 0px!important;
+}
+
+input.ng-untouched.ng-invalid + .customMsg > validation{
+  display: none;
+}
+form.ng-invalid.ng-touched .amount-control{
+  border-color: red!important;
+}
+.ui-widget-header {
+  background: #3c4452 0 0 repeat-x!important;
+  background: linear-gradient(to bottom, #3c4452 0%, #3c4452 100%)!important;
+  border-color: #3c4452!important;
+}
+.underline{
+  text-decoration: underline;
+}
+.search-btn,.clear-btn{
+  padding: 1px 11px 4px 11px!important;
+  margin-top: 2px!important;
+  font-size: 16px!important;
+  margin-left: -2px!important;
+}
+.ui-widget-content a {
+  color: #FFFFFF!important;
+}
+p-dialog .ui-widget-content,
+p-dialog .ui-dialog-title{
+  color: #fff!important;
+}
+p-dialog p{
+  font-size: 16px!important;
+}
+p-dialog p a{
+  color:#00dcff !important
+}
+.ui-dialog .ui-dialog-titlebar-icon:hover {
+  background: #3c4452!important;
+}
+.pointer-event{
+  opacity: 1!important;
+  background-color: gray!important;
+  color: #fff;
+  border-color: gray!important;
+  outline: 0;
+}
+small{
+  font-size: 14px;
+}
+p-dropdown{
+  position: relative;
+  z-index: 9999;
+}
+
+
+/*.button-loader {*/
+  /*border: 3px solid #fff;*/
+  /*border-radius: 50%;*/
+  /*border-top: 3px solid #353c48;*/
+  /*width: 17px;*/
+  /*height: 17px;*/
+  /*-webkit-animation: spin 2s linear infinite;*/
+  /*animation: spin 2s linear infinite;*/
+  /*display: inline-block;*/
+  /*position: relative;*/
+  /*text-align: center;*/
+  /*top: 2px;*/
+/*}*/
+/*@-webkit-keyframes spin {*/
+  /*0% {*/
+    /*-webkit-transform: rotate(0deg);*/
+  /*}*/
+  /*100% {*/
+    /*-webkit-transform: rotate(360deg);*/
+  /*}*/
+/*}*/
+
+/*@keyframes spin {*/
+  /*0% {*/
+    /*transform: rotate(0deg);*/
+  /*}*/
+  /*100%*/
+  /*{*/
+    /*transform: rotate(360deg);*/
+  /*}*/
+/*}*/
+
+.button-loader,
+.button-loader:after {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 2px;
+  display: inline-block;
+}
+.button-loader {
+  margin:0px 0px 0px 0px;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+.button-loader.landing-loader,
+.button-loader.landing-loader:after{
+  width: 21px;
+  height: 21px;
+}
+.button-loader.landing-loader,
+.button-loader.landing-loader-small{
+  border-left: 2px solid #00cdad;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.redClr {
+  color: #ff3535 !important; }

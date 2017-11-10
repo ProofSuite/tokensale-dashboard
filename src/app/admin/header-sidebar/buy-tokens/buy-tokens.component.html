@@ -1,0 +1,161 @@
+<div class="buy-token-container" @slideUp *ngIf="!loader">
+  <div class="col-md-12 ether-block" *ngIf="!checkTime">
+    <h3>{{'buyProofToken' | translate}}</h3>
+    <form [formGroup]="buyTokenForm" (submit)="onSubmitBuyToken(buyTokenForm.value)">
+      <div class="etherium-body">
+        <div class="col-md-6 col-sm-10 col-xs-12 margin-top-5 padding-left-0">
+          <h4>{{'contractAddress' | translate}}</h4>
+          <input class="form-control" type="text" value="{{contractAddress}}" readonly/>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 margin-top-20 padding-left-0">
+          <h4>{{'amount' | translate}}</h4>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-2 col-sm-4 col-xs-12 margin-top-5 padding-left-0">
+          <select class="form-control" formControlName="tokenType" pTooltip="{{'tokenType' | translate}}"
+                  tooltipPosition="top" (change)="changeCurrency($event.target.value,amount)" required>
+            <option value="0">ETH</option>
+            <option value="1">SYM</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-top-5 padding-left-0">
+          <input class="form-control amount-control text-right" placeholder="{{'enterValue' | translate}}"
+                 pTooltip="{{'enterValue' | translate}}" tooltipPosition="top" formControlName="ether" #amount
+                 (keyup)="distributionCalculation(buyTokenForm.get('tokenType').value,buyTokenForm.get('ether').valid,amount.value)"
+                 required/>
+          <div class="input-validation-msg text-right customMsg">
+            <validation *ngIf="isRequiredField(buyTokenForm.get('ether'))"
+                        [errMsg]="'etherRqr' | translate"></validation>
+            <validation *ngIf="isValidField(buyTokenForm.get('ether'))"
+                        [errMsg]="'validEther' | translate"></validation>
+            <validation *ngIf="hasError('SYM',buyTokenForm,buyTokenForm.get('ether'))"
+                        [errMsg]="'validEther' | translate"></validation>
+            <validation *ngIf="hasError('ether',buyTokenForm,buyTokenForm.get('ether'))"
+                        [errMsg]="'validEther' | translate"></validation>
+            <validation *ngIf="groupError('invalidEtherBalance',buyTokenForm,buyTokenForm.get('ether'))"
+                        [errMsg]="'validEther' | translate"></validation>
+            <validation *ngIf="groupError('invalidtokenBalance',buyTokenForm,buyTokenForm.get('ether'))"
+                        [errMsg]="'validEther' | translate"></validation>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-top-10 padding-left-0" *ngIf="balance">
+          <div>{{balance}}</div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10 padding-left-0">
+          <button type="submit" class="btn btn-primary" [disabled]="!buyTokenForm.valid"
+                  pTooltip="{{'prchasePRTF' | translate}}" tooltipPosition="top">{{'prchasePRTF' | translate}}
+          </button>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="lightClr col-md-12 padding-left-0 margin-top-5">
+          <small pTooltip="{{'sendInfoNote' | translate}}" tooltipPosition="top">{{'sendInfoNote' | translate}}</small>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+  <div class="clearfix"></div>
+
+  <!--Start Timer -->
+  <div class="col-md-12 ether-block" *ngIf="checkTime">
+    <h3 class="text-center">{{'tokenSaleBegin' | translate}}</h3>
+    <div class="buy-token-timer">
+      <div class="margin-top-35 clock-timing">
+        <div class="col-md-3">
+          <span>{{'days' | translate}}</span>
+          <input id='check' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="daysPr" data='0'>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <span>{{'hours' | translate}}</span>
+          <input id='check1' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="hoursPr" data='0'>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <span>{{'minutes' | translate}}</span>
+          <input id='check2' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="minutesPr" data='0'>
+          </div>
+        </div>
+
+        <div class="col-md-3 last-none">
+          <span>{{'seconds' | translate}}</span>
+          <input id='check3' type='checkbox'>
+          <label for='check'></label>
+          <div class='chart active' id="secondsPr" data='0'>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- End timer -->
+
+    <div class="col-md-12 timer-date">
+      <div><span>1st November 13.00 GMT</span> - <span>1st December 13.00 GMT</span></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="sucess-msg">
+  <p-messages [(value)]="msgs"></p-messages>
+</div>
+
+<admin-footer></admin-footer>
+
+<!-- Change password modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 2" @dialog>
+  <form [formGroup]="passwordForm" (submit)="onVerifyPassword(passwordForm.value,buyTokenForm.value)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'password' | translate}}</h5>
+        <i class="material-icons" (click)="closeForm()">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="col-md-12">
+          <input type="password" placeholder="{{'enterOldPassword' | translate}}" Autofocus
+                 pTooltip="{{'enterOldPassword' | translate}}" tooltipPosition="top" #oldPass class="form-control"
+                 formControlName="password" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(passwordForm.get('password'))"
+                        [errMsg]="'pwdRqrd' | translate"></validation>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!passwordForm.valid"
+                  pTooltip="{{'verify' | translate}}" tooltipPosition="top">{{'verify' | translate}}
+          </button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+<div class="confirm-modal-overay" *ngIf="isShowModal == 2" (click)="closeForm()"></div>

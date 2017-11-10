@@ -1,0 +1,16 @@
+<div class="ether-balance-container" @slideUp>
+  <div class="ether-balance">
+    <h3>Ether Balance</h3>
+    <div class="balance-counter-body text-center margin-top-50 margin-bottom-35">
+      <div *ngIf="loaderEther" class="button-loader"></div>
+      <span *ngIf="!loaderEther" class="balance-counter" pTooltip="{{'etherBalance' | translate}}" tooltipPosition="top">{{balance}}</span>
+      <span class="label" pTooltip="{{'ether' | translate}}" tooltipPosition="top">{{'ether' | translate}}</span>
+
+      <div class="margin-top-30">
+        <button class="btn btn-primary" (click)="etherBalanceRefresh()" pTooltip="{{'refresh' | translate}}" tooltipPosition="top">{{'refresh' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<admin-footer></admin-footer>

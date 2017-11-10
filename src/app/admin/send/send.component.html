@@ -1,0 +1,104 @@
+<div class="send-container" @slideUp>
+  <div class="send-form">
+    <form [formGroup]="sendForm" (submit)="onSend(sendForm.value,sendForm.valid)">
+      <h3 class="col-md-12 col-sm-12 col-xs-12">{{'send' | translate}}</h3>
+      <div class="clearfix"></div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12 padding-left-0 padding-right-0">
+       <div class="col-md-12 col-xs-12 col-sm-12">
+         <div class="label">{{'currency' | translate}}</div>
+         <select class="form-control" formControlName="currency" pTooltip="{{'currency' | translate}}" tooltipPosition="top" (change)="changeCurrency($event.target.value,amount)">
+            <option value="0">{{'ether' | translate}}</option>
+            <option value="1">{{'prfToken' | translate}}</option>
+         </select>
+         <div class="input-validation-msg"></div>
+       </div>
+       <div class="clearfix"></div>
+
+       <div class="col-md-12 col-xs-12 col-sm-12 margin-top-15">
+         <div class="label">{{'destination' | translate}}</div>
+         <input type="text" class="form-control" placeholder="{{'destination' | translate}}" pTooltip="{{'destination' | translate}}" tooltipPosition="top" formControlName="destination"
+                 (blur)="checkAddress(desination.value)" (keyup)="checkAddress(desination.value)" #desination required/>
+         <div class="input-validation-msg">
+           <validation *ngIf="isRequiredField(sendForm.get('destination'))"
+                        [errMsg]="'destinationRqrd' | translate"></validation>
+           <validation *ngIf="!isAddressValid" [errMsg]="'validDestination' | translate"></validation>
+         </div>
+       </div>
+       <div class="clearfix"></div>
+
+       <div class="col-md-12 col-sm-12 col-xs-12">
+         <div class="col-md-6 col-xs-6 col-sm-6 margin-top-10 padding-left-0 padding-right-0">
+           <div class="label">{{'amount' | translate}}</div>
+           <input class="form-control"
+                  [ngClass]="{'amount-control':(groupError('invalidtokenBalance',sendForm,sendForm.get('amount')) == true) || (groupError('invalidEtherBalance',sendForm,sendForm.get('amount')) == true)}"
+                  placeholder="{{'amount' | translate}}" pTooltip="{{'amount' | translate}}" tooltipPosition="top"
+                  formControlName="amount" #amount
+                  (keyup)="updatePrice(sendForm.get('currency').value,sendForm.get('amount').valid,amount.value)" required/>
+           <div class="input-validation-msg customMsg">
+             <validation *ngIf="isRequiredField(sendForm.get('amount'))" [errMsg]="'amountRqrd' | translate"></validation>
+             <validation *ngIf="isValidField(sendForm.get('amount'))" [errMsg]="'validAmount' | translate"></validation>
+             <validation *ngIf="groupError('invalidEtherBalance',sendForm,sendForm.get('amount'))" [errMsg]="'validEther' | translate"></validation>
+             <validation *ngIf="groupError('invalidtokenBalance',sendForm,sendForm.get('amount'))" [errMsg]="'validEther' | translate"></validation>
+           </div>
+         </div>
+         <div class="col-md-6 col-xs-6 whiteClr col-sm-6 margin-top-35 padding-right-0" *ngIf="balance">
+           <label><b>{{totalText}}</b></label><span>{{balance}}</span><label><br/><b>Transaction Fee : </b></label><span>{{transactionFee}}</span>
+         </div>
+       </div>
+       <div class="clearfix"></div>
+
+       <div class="col-md-12 col-sm-12 col-xs-12 margin-top-15">
+         <button type="submit" class="btn btn-primary" [disabled]="!sendForm.valid" [ngClass]="{'pointer-event':!isAddressValid}" pTooltip="{{'send' | translate}}" tooltipPosition="top">{{'send' | translate}}</button>
+       </div>
+       <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="lightClr col-md-12 margin-top-5"><small>{{'sendInfoNote' | translate}}</small></div>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="sucess-msg">
+<p-messages [(value)]="msgs"></p-messages>
+</div>
+
+<admin-footer></admin-footer>
+
+
+<!-- Change password modal -->
+<div class="phone-number-modal" *ngIf="isShowModal == 2" @dialog>
+  <form [formGroup]="passwordForm" (submit)="onVerifyPassword(passwordForm.value,sendForm.value)">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5>{{'password' | translate}}</h5>
+        <i class="material-icons" (click)="closeForm()">close</i>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-body">
+        <div class="col-md-12">
+          <input type="password" placeholder="{{'enterOldPassword' | translate}}" Autofocus #oldPass class="form-control" formControlName="password" required/>
+          <div class="input-validation-msg">
+            <validation *ngIf="isRequiredField(passwordForm.get('password'))" [errMsg]="'pwdRqrd' | translate"></validation>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!passwordForm.valid">{{'verify' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="margin-top-10"></div>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+
+<div class="confirm-modal-overay" *ngIf="isShowModal == 2" (click)="closeForm()"></div>

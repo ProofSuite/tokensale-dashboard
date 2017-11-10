@@ -1,0 +1,17 @@
+<div class="token-balance-container" @slideUp>
+  <div class="token-balance">
+    <h3>{{'tokenBalance' | translate}}</h3>
+    <div class="balance-counter-body text-center margin-top-50">
+      <div *ngIf="loaderProof" class="button-loader"></div>
+      <span *ngIf="!loaderProof" class="balance-counter" pTooltip="{{'tokenBalance' | translate}}" tooltipPosition="top">{{balance}}</span>
+      <span class="label" pTooltip="{{'SYM' | translate}}" tooltipPosition="top">{{'SYM' | translate}}</span>
+      <div class="margin-top-30">
+        <button class="btn btn-primary" (click)="tokenBalanceRefresh()" pTooltip="{{'refresh' | translate}}" tooltipPosition="top">{{'refresh' | translate}}</button>
+      </div>
+      <span class="label"></span>
+    </div>
+    <div class="margin-bottom-35"></div>
+  </div>
+</div>
+
+<admin-footer></admin-footer>

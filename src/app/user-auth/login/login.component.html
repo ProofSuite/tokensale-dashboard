@@ -1,0 +1,109 @@
+<!-- particles.js container -->
+<div id="login-particles-js"></div>
+
+<div class="ui container login-container">
+  <!-- Start Header -->
+  <div class="login-header">
+    <div class="col-md-3 xs-none"></div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3 col-xs-5 xs-right">
+      <app-language-selector></app-language-selector>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <!-- End Header -->
+
+  <div class="login-block">
+    <div class="login-main-block" @dialog>
+      <!-- Start Login Form -->
+      <div class="main-logo">
+        <img src="assets/img/logo_white.png"/>
+      </div>
+      <div class="ui form login-form">
+        <!--Login Form Start-->
+        <div class="login-section" *ngIf="activeForm == 1">
+          <form [formGroup]="loginForm" (submit)="onLogin(loginForm.value,loginForm.valid)">
+            <div class="two fields">
+              <div class="field logo">
+                <h3>{{ 'login' | translate}}</h3>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <input type="text" placeholder="{{'email' | translate}}" Autofocus pTooltip="{{'email' | translate}}" tooltipPosition="top" class="form-control" formControlName="email" required/>
+                <div class="input-validation-msg">
+                  <validation *ngIf="isRequiredField(loginForm.get('email'))" [errMsg]="'emailRqrd' | translate"></validation>
+                  <validation *ngIf="isValidField(loginForm.get('email'))" [errMsg]="'validEmail' | translate"></validation>
+                </div>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <input type="password" placeholder="{{'password' | translate}}" pTooltip="{{'password' | translate}}" tooltipPosition="top" class="form-control" formControlName="password" required/>
+                <div class="input-validation-msg">
+                  <validation *ngIf="isRequiredField(loginForm.get('password'))" [errMsg]="'pwdRqrd' | translate"></validation>
+                </div>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <button type="submit" class="btn-primary btn btn-block" pTooltip="{{'login' | translate}}" tooltipPosition="top" [disabled]="!loginForm.valid">
+                  {{'login' | translate}}
+                </button>
+              </div>
+              <div class="text-center whiteClr margin-top-10">
+                <span>{{'dntHaveAccount' | translate}} <a (click)="viewRegisterForm()" pTooltip="{{'register' | translate}}" tooltipPosition="top">{{'register' | translate}}</a></span>
+              </div>
+
+              <!--<div class="margin-top-10 whiteClr text-center">-->
+              <!--<span>{{'forgotPwd' | translate}} <a>{{'recover' | translate}}</a></span>-->
+              <!--</div>-->
+            </div>
+          </form>
+        </div>
+        <!-- End Login Form -->
+
+        <!--OTP Form Start-->
+        <div class="login-section" *ngIf="activeForm == 2">
+          <form [formGroup]="otpForm" (submit)="onOtpSubmit(otpForm.value,otpForm.valid)">
+            <div class="two fields">
+              <div class="field logo">
+                <h3>{{ 'otp' | translate}}</h3>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <input type="text" placeholder="{{ 'otp' | translate}}" Autofocus pTooltip="{{'otp' | translate}}" tooltipPosition="top" class="form-control" formControlName="OTP" required/>
+                <div class="input-validation-msg">
+                  <validation *ngIf="isRequiredField(otpForm.get('OTP'))" [errMsg]="'otpRqrd' | translate"></validation>
+                  <validation *ngIf="isValidLength(otpForm.get('OTP'))" [errMsg]="'otpLnth' | translate"></validation>
+                  <validation *ngIf="isValidField(otpForm.get('OTP'))" [errMsg]="'validOtp' | translate"></validation>
+                </div>
+              </div>
+              <div class="field resendOtp text-right">
+                <a (click)="resendOtp()" pTooltip="{{'resendOtp' | translate}}" tooltipPosition="top">{{'resendOtp' | translate}}</a>
+              </div>
+            </div>
+
+            <div class="two fields margin-top-10">
+              <div class="field">
+                <button type="submit" class="btn-primary btn btn-block" pTooltip="{{'verifyOTP' | translate}}" tooltipPosition="top" [disabled]="!otpForm.valid">{{'verifyOTP' | translate}}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End Otp Form -->
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+    <!-- Start Footer -->
+    <app-footer></app-footer>
+    <!-- End Footer -->
+  </div>
+</div>

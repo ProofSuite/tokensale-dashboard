@@ -1,0 +1,53 @@
+.body-content {
+  min-height: 550px !important;
+}
+
+.page-not-found-section {
+  position: relative;
+  padding-top: 150px;
+}
+
+.notFoundImage {
+  margin-left: 100px;
+}
+/*
+.notFoundContent {
+  float: right;
+  margin-top: 50px;
+  width: 600px;
+  height: 500px;
+  font-size: 35px;
+  background: #d84315;
+  text-align: center;
+  color: #fff;
+  border-radius: 100% 0px 0px 0;
+}*/
+
+.notFoundContent i{
+  color: #ffffff;
+  font-size: 36px;
+}
+.notFoundContent h3{
+  color: #ffffff;
+  font-size: 72px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+.notFoundContent p {
+  font-size: 42px;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.backToHome {
+  margin-top: 89px;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.backToHome a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}

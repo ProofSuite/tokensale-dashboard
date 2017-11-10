@@ -1,0 +1,363 @@
+/*************************************************************************/
+//                        Common Variables                               //
+/*************************************************************************/
+
+$white: #fff !important;
+$black: #000 !important;
+$common-font-family: 'Lato', sans-serif!important;
+$green: #00c8aa;
+$themeClr:#353c48;
+$darkColor:#353c48;
+$borderColor:#414354;
+$gray: #cacaca;
+$time: 1s;
+$multiplier: 1;
+$by: 100/$multiplier;
+$height: 24px;
+
+/*************************************************************************/
+//                        Sidebar Component css                           //
+/*************************************************************************/
+.green{
+  color: $green;
+}
+.black{
+  color: $themeClr;
+}
+.desktop-view{
+  display: block;
+}
+.mobile-view{
+  display: none;
+}
+.sidebar-container{
+  top: 0px;
+  z-index: 9;
+  background-color: $themeClr;
+  width: 210px;
+  height: 100%;
+  float: left;
+  margin-right: 5px;
+  position: fixed;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2), 0 0px 3px rgba(0, 0, 0, 0.14), 0 0px 2px 0px rgba(0, 0, 0, 0.12);
+  .userProfile{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    li{
+      list-style-type: none;
+      a {
+        display: block;
+        width: 97%;
+        margin: auto;
+        padding: 11px 3px 33px 6px;
+        color: #96a2b4;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+        border-radius: 2px;
+        cursor: pointer;
+        border: 2px solid rgba(141, 145, 152, 0.24);
+        i {
+          color: #96a2b4;
+          vertical-align: bottom;
+          float: left;
+        }
+        div{
+          float: left;
+          width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          position: relative;
+          left: 7px;
+          top: 3px;
+        }
+        &.active, &:hover {
+          background-color: #313843;
+          color: $white;
+          i {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .logo{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    img{
+      width: 65%;
+    }
+  }
+
+  ul.navbar-menu{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    li{
+      list-style-type: none;
+      a{
+        display: block;
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        color:#96a2b4;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+        border-radius: 2px;
+        cursor: pointer;
+        i{
+          color:#96a2b4;
+          vertical-align: bottom;
+        }
+        &.active,&:hover{
+          background-color:#313843;
+          color: $white;
+          i{
+            color: $white;
+          }
+        }
+        span{
+          position: relative;
+          top: -2px;
+        }
+      }
+      .changePassword{
+        //background-color: $lightBlue;
+      }
+      .logout{
+        position: absolute;
+        bottom: 85px;
+        width: 95%;
+        padding: 8px 10px;
+        box-sizing: border-box;
+      }
+      .settings{
+        position: absolute;
+        bottom: 125px;
+        width: 95%;
+        padding: 8px 10px;
+        box-sizing: border-box;
+      }
+      img{
+        width: 22px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
+  }
+  .value-count{
+    font-size: 14px;
+    float: left;
+    margin-left: 10px;
+    color: #fff;
+    margin-top: 10px;
+  }
+  .logo-icons{
+    float: left;
+    margin-top: 10px;
+  }
+}
+
+.language-select{
+  position: absolute;
+  bottom: 25px;
+}
+
+
+.toggleIcon{
+  position: fixed;
+  bottom: 8px;
+  z-index: 99;
+  cursor: pointer;
+  left: 0px;
+  .open{
+    position: absolute;
+    left: 186px;
+    background-color: #4c5463 !important;
+    color: #ffffff;
+    border-radius: 9px 0px 0px 8px;
+    bottom: 5px;
+  }
+  .close{
+    position: absolute;
+    left: 0px;
+    background-color: #4c5463;
+    color: #fff !important;
+    border-radius: 0px 4px 4px 0px;
+    padding: 0px 2px 0px 0px;
+    bottom: 5px;
+  }
+}
+.language-dropdown{
+  margin-left: 13px;
+}
+
+/*  Header
+-----------------------------------------------------*/
+.header-container{
+  box-shadow: 0 0px 0px -4px rgba(0, 0, 0, 0.2), 0 0px 1px 0px rgba(0, 0, 0, 0.14), 0 0px 1px 0px rgba(0, 0, 0, 0.12);
+  margin: 5px 5px 5px 2px;
+  background-color: #353c48;
+  padding: 0px !important;
+  width: calc(100% - 10px);
+  /*progressbar*/
+  .progressbar {
+    overflow: hidden;
+    counter-reset: step;
+    padding-top: 32px;
+    padding-bottom: 11px;
+    margin: 0px;
+    margin-top: 8px;
+    width: calc(85%);
+    box-sizing: border-box;
+    z-index: 99;
+    position: relative;
+    margin-left: 15%;
+    li {
+      list-style-type: none;
+      color: $themeClr;
+      text-transform: capitalize;
+      font-size: 13px;
+      width: 25%;
+      float: left;
+      position: relative;
+      text-align: center;
+
+      &:first-child a:after{
+        /*connector not needed before the first step*/
+        content: none;
+      }
+      &:last-child a:before{
+        width: 0px;
+        display: none;
+      }
+      &:last-child a:after{
+        background: #fff;
+        display: none;
+      }
+    }
+    li > a{
+      list-style-type: none;
+      color: $themeClr;
+      text-transform: capitalize;
+      font-size: 13px;
+      width: 100%;
+      float: left;
+      position: relative;
+      text-align: center;
+      span{
+        color: #fff;
+      }
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 28px;
+        line-height: 27px;
+        display: block;
+        font-size: 14px;
+        color: #000;
+        background: #fff;
+        border-radius: 50px;
+        margin: -4px auto 5px auto;
+        font-weight: 500;
+      }
+      /*progressbar connectors*/
+      &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        position: absolute;
+        left: -50%;
+        top: 9px;
+        z-index: -1; /*put it behind the numbers*/
+      }
+      /*marking active/completed steps green*/
+      /*The number of the step and the connector before it = green*/
+      &.active:before,&:hover:before{
+        background: $green!important;
+        color: $white;
+        box-shadow: 0 2px 0px -3px rgba(0, 0, 0, 0.2), 0 0px 0px 0px rgba(0, 0, 0, 0.14), 0 0px 3px 0px rgba(0, 0, 0, 0.12);
+      }
+      &.active:before{
+        //line-height: 28px;
+        //width: 30px;
+        //position: relative;
+        //top: -2px;
+        //font-weight: 600;
+        cursor: pointer;
+      }
+      //&.active{
+      //  color: $green;
+      //  span{
+      //    color: $green;
+      //  }
+      //  &:after{
+      //    background-color: $green!important;
+      //  }
+      //}
+      a{
+        font-weight: 400;
+        font-size: 15px;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .top-menu{
+        position: absolute;
+        top: -23px;
+        border: 2px solid #00c8aa;
+        padding: 3px 11px;
+        background-color: #00c8aa;
+        cursor: pointer;
+        right: 10px;
+        width: 145px;
+        a{
+          color: #fff;
+        }
+      }
+      .bottom-menu{
+        border: 2px solid #17a2b8;
+        padding: 4px 12px;
+        position: absolute;
+        top: 18px;
+        border-top: 0px solid;
+        background-color: #17a2b8;
+        right: 10px;
+        width: 145px;
+        a{
+          color: $white;
+        }
+      }
+      .top-menu,.bottom-menu{
+        i{
+          color: $white;
+          font-size: 17px;
+          position: relative;
+          top: 1px;
+          float: right;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+li.twoTabActive,li.AllTabActive{
+  a{
+    color: $green;
+    span{
+      color: $green;
+    }
+    &:after,&:before{
+      background-color: $green!important;
+      color: #fff!important;
+    }
+  }
+}

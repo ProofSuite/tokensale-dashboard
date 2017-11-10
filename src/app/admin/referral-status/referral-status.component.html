@@ -1,0 +1,61 @@
+<div class="col-md-12 margin-top-20 referral-header" @slideDown>
+  <div class="col-md-6">
+    <a routerLink="/">
+      <img src="assets/img/logo_white.png" width="124">
+    </a>
+  </div>
+
+  <div class="col-md-6 text-right">
+    <app-language-selector></app-language-selector>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="transaction-history-container referral-program" @slideUp>
+  <div class="transaction-history-table box-shadow">
+    <div class="col-md-12 col-sm-12 col-xs-12 padding-left-0 padding-right-0 refferals_status_header">
+      <div class="col-md-6 col-sm-12 col-xs-12 padding-left-0 padding-right-0">
+        <h3 class="first">{{'referralStatus' | translate}}</h3>
+      </div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12 on-right padding-left-0 padding-right-0 margin-top-5">
+          <form [formGroup]="searchEmail">
+            <div class="col-md-7 col-sm-6 col-xs-12 padding-left-0 padding-right-5">
+              <input type="email" formControlName="email" placeholder="{{'email' | translate}}" class="form-control"/>
+            </div>
+
+            <div class="col-md-5 col-sm-6 col-xs-12 padding-left-0 padding-right-0">
+              <button type="button" class="btn btn-primary btn-sm search-btn margin-right-5" (click)="getReferalsList(searchEmail.value.email)" [disabled]="!searchEmail.valid">{{'search' | translate}}</button>
+              <button type="button" class="btn btn-default btn-sm clear-btn" (click)="createSearchEmail()" >{{'clearSearch' | translate}}</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div *ngIf="true">
+      <p-dataTable [value]="referalList" [loading]="false" [rows]="10" [paginator]="false" [responsive]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+        <p-column field="ethereumAddress" header="Ethereum Address" [sortable]="true"></p-column>
+        <p-column field="createdAt" header="Timestamp" [sortable]="true"></p-column>
+        <p-column field="ipAddress" header="IP Address" [sortable]="true"></p-column>
+        <ng-template pTemplate="emptymessage">
+          {{'referralEmptyMsg' | translate}}
+        </ng-template>
+      </p-dataTable>
+    </div>
+
+    <!--when row length is 0-->
+    <div class="PTB70" *ngIf="false">
+      <div class="col-md-12 text-center">
+        <p>{{'listEmpty' | translate}}</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+  </div>
+</div>
+
+<admin-footer></admin-footer>
+
