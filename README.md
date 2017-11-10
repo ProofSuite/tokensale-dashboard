@@ -49,7 +49,7 @@ The purchasing element of this application relies on the fallback being the purc
 Angular 2 is the core framework for this app.  Integrated with Node, it requires a build in order to deploy into a production server.
 
 
-**Design**
+**Customizability**
 
 Design can be modified for any preferred aesthetic in order to fit the feel and intent of a tokensale. Likewise, languages can be easily added or removed through simple typescript copy and pasting.
 
@@ -127,6 +127,9 @@ for production buildcode run:
 Note that since most of your references, API's, and keys have not been set so running `ng build` will probably fail prior to configuration.  If it runs on first try you may need to call an exorcist for your workstation.
 
 ## Install The Application
+First, clone this repo with the command:
+
+`git clone https://github.com/ProofSuite/TokenSaleDashboard.git`
 
 In the app root, direct the node packet manager to locally install the dependencies with:
 
