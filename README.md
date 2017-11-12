@@ -12,7 +12,7 @@ The flow of this program is similar to MyEtherWallet in that all wallet manageme
 
 Luckily, the user can download their token wallet and and even open and manage it on MEW if that is what they prefer.
 
-Also, Special Thanks Smart Sense Solutions for their assistance on getting the first iteration of this dashboard ready.
+Also, Special Thanks [Smart Sense Solutions](https://smartsensesolutions.com/) for their assistance on getting the first iteration of this dashboard ready.
 
 
 
