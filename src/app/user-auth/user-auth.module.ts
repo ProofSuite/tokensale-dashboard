@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import {ChartModule, DialogModule, DropdownModule, TooltipModule} from 'primeng/primeng';
 import { LandingComponent } from './landing/landing.component';
 import { CompleteIcoComponent } from './complete-ico/complete-ico.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { CompleteIcoComponent } from './complete-ico/complete-ico.component';
     RegisterComponent,
     FooterComponent,
     LandingComponent,
-    CompleteIcoComponent],
+    CompleteIcoComponent,
+    ImageUploadComponent],
   providers: [UserAuthService],
   exports: [
     LoginComponent,
