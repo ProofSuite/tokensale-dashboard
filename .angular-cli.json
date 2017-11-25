@@ -24,7 +24,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/primeng/resources/themes/omega/theme.css",
-        "assets/scss/proofTokenSale.css",
+        "assets/scss/TokenSale.css",
         "assets/scss/countrySelect.css",
         "assets/scss/demo.css"
       ],
